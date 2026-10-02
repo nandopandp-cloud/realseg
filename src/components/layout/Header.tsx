@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, UserRound, X } from "lucide-react";
 import { navigation } from "@/data/site";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
@@ -121,8 +121,11 @@ export function Header() {
 
           <div className="flex items-center gap-3">
             <div className="hidden sm:block">
-              <Button href="#contato" size="sm">
-                Falar com especialista
+              <Button href="/colaborador" size="sm">
+                <span className="inline-flex items-center gap-2">
+                  <UserRound aria-hidden className="size-3.5" />
+                  Área do colaborador
+                </span>
               </Button>
             </div>
             <button
@@ -168,8 +171,11 @@ export function Header() {
             ))}
           </ul>
           <div data-menu-item>
-            <Button href="#contato" onClick={() => setOpen(false)} size="lg">
-              Falar com especialista
+            <Button href="/colaborador" onClick={() => setOpen(false)} size="lg">
+              <span className="inline-flex items-center gap-2">
+                <UserRound aria-hidden className="size-4" />
+                Área do colaborador
+              </span>
             </Button>
           </div>
         </nav>
