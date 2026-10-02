@@ -22,7 +22,7 @@ const steps = [
   {
     n: "04",
     t: "Elementos gráficos",
-    d: "Grid, HUD e linhas de sinal — de forma sutil.",
+    d: "Grid, HUD e linhas de sinal, de forma sutil.",
     props: { grade: "brand", overlay: "vignette", grid: true, frame: true },
   },
 ] as const;
@@ -55,7 +55,7 @@ export function Photography() {
           Cinematográfico, urbano e <span className="rs-text-gradient">tecnológico.</span>
         </>
       }
-      description="Imagens que comunicam segurança e inteligência em contextos reais. Tratamento consistente em todos os pontos de contato — Brandbook 09."
+      description="Imagens que comunicam segurança e inteligência em contextos reais. Tratamento consistente em todos os pontos de contato (Brandbook 09)."
     >
       <SubSection title="Tratamento visual" description="Processo de aplicação para manter a consistência da marca.">
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -143,7 +143,10 @@ export function Photography() {
                 ["Atmosfera cinematográfica", "Ambiente noturno ou blue hour."],
                 ["Cyan como destaque", "Aplicado em interface, linhas, pontos."],
               ].map(([k, v]) => (
-                <li key={k} className="border-l-2 border-cyan/50 pl-3">
+                <li
+                  key={k}
+                  className="border-l-2 border-cyan/50 pl-3 transition-[border-color,transform] duration-(--rs-duration-normal) ease-rs-standard hover:translate-x-1 hover:border-cyan"
+                >
                   <p className="type-label-lg uppercase tracking-wide text-fg">{k}</p>
                   <p className="type-body-sm text-muted">{v}</p>
                 </li>
@@ -159,9 +162,15 @@ export function Photography() {
               ["Profundidade", "Camadas de elementos para imersão.", "/images/ins-smartcity.jpg"],
               ["Detalhes", "Foco em tecnologia e operação.", "/images/ins-drone.jpg"],
             ].map(([k, v, src]) => (
-              <figure key={k}>
-                <div className="relative aspect-video overflow-hidden rounded-rs-md border border-line-subtle">
-                  <Image src={src} alt="" fill sizes="20vw" className="object-cover" />
+              <figure key={k} className="group">
+                <div className="relative aspect-video overflow-hidden rounded-rs-md border border-line-subtle transition-[border-color] duration-(--rs-duration-normal) group-hover:border-cyan/40">
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    sizes="20vw"
+                    className="object-cover transition-transform duration-[1.2s] ease-rs-standard group-hover:scale-105"
+                  />
                 </div>
                 <figcaption className="mt-2">
                   <p className="type-label-md uppercase tracking-wide text-fg">{k}</p>

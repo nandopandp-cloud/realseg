@@ -12,7 +12,7 @@ export function NavigationSection() {
           Orientação <span className="rs-text-gradient">sem esforço.</span>
         </>
       }
-      description="Header, Sidebar, Tabs, Breadcrumb, Paginação e Menu. Estado ativo sempre em cyan, com indicador linear (traço ou barra) — nunca fundo chapado."
+      description="Header, Sidebar, Tabs, Breadcrumb, Paginação e Menu. Estado ativo sempre em cyan, com indicador linear (traço ou barra), nunca fundo chapado."
     >
       <SubSection
         title="Header"

@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 const sizes = { sm: "size-3.5 border-[1.5px]", md: "size-5 border-2", lg: "size-8 border-2" } as const;
 
-/** Spinner — feedback funcional, mantido (mais lento) em reduced-motion. */
+/** Spinner: feedback funcional, mantido (mais lento) em reduced-motion. */
 export function Spinner({
   size = "md",
   tone = "accent",

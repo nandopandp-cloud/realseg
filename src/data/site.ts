@@ -2,7 +2,7 @@ export const site = {
   name: "RealSeg",
   legalName: "Grupo RealSeg",
   tagline: "Security Intelligence",
-  title: "RealSeg — Security Intelligence | Tecnologia e Segurança",
+  title: "RealSeg · Security Intelligence | Tecnologia e Segurança",
   description: "Tecnologia, inteligência e monitoramento para proteger pessoas, patrimônios e cidades.",
   // TODO: substituir pelo domínio definitivo antes do deploy.
   url: "https://www.realseg.com.br",

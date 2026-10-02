@@ -2,7 +2,7 @@ import { useId } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * SecurityConnection — linhas que representam dados, fluxo, monitoramento e conexão.
+ * SecurityConnection: linhas que representam dados, fluxo, monitoramento e conexão.
  * - primary: fluxo principal (sólida, com glow)
  * - secondary: conexão e dados (com nós)
  * - dotted: rotas e trajetos
@@ -22,7 +22,7 @@ export function SecurityConnection({
   variant?: ConnectionVariant;
   d?: string;
   viewBox?: string;
-  /** Posições (0–1) de nós sobre o traçado (aproximadas pelo eixo X). */
+  /** Posições (0 a 1) de nós sobre o traçado (aproximadas pelo eixo X). */
   nodes?: number[];
   className?: string;
 }) {
@@ -82,7 +82,7 @@ function NodeOnPath({ d, t }: { d: string; t: number }) {
 }
 
 /**
- * SecuritySignal — "The Signal", assinatura gráfica da RealSeg.
+ * SecuritySignal: "The Signal", assinatura gráfica da RealSeg.
  * Onda de sinal com glow; animada desloca a fase continuamente.
  */
 export function SecuritySignal({

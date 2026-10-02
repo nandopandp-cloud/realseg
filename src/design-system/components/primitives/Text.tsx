@@ -52,7 +52,7 @@ const headingDefaults: Record<string, TypeScaleName> = {
   h6: "heading-sm",
 };
 
-/** Heading semântico. O nível (h1–h6) é independente do estilo visual (`variant`). */
+/** Heading semântico. O nível (h1 a h6) é independente do estilo visual (`variant`). */
 export function Heading({
   level = 2,
   variant,
@@ -76,7 +76,7 @@ export function Heading({
   );
 }
 
-/** Destaque cyan dentro de headlines — use uma vez por título, na palavra-chave. */
+/** Destaque cyan dentro de headlines: use uma vez por título, na palavra-chave. */
 export function Highlight({ children }: { children: ReactNode }) {
   return <span className="rs-text-gradient">{children}</span>;
 }

@@ -4,7 +4,7 @@ import { useState, type ReactNode } from "react";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-/** Realce mínimo para JSX/TS/CSS — sem dependências, sem HTML injetado. */
+/** Realce mínimo para JSX/TS/CSS: sem dependências, sem HTML injetado. */
 const RULES: Array<[RegExp, string]> = [
   [/^(\/\/.*|\/\*[\s\S]*?\*\/|\{\/\*[\s\S]*?\*\/\})/, "text-subtle italic"],
   [/^("[^"]*"|'[^']*'|`[^`]*`)/, "text-cyan-light"],

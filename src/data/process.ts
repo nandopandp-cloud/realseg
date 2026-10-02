@@ -22,7 +22,7 @@ export const processSteps: ProcessStep[] = [
     title: "Analisar",
     description: "Inteligência artificial em tempo real.",
     detail:
-      "Visão computacional classifica pessoas, veículos e comportamentos — e separa o que é rotina do que é risco.",
+      "Visão computacional classifica pessoas, veículos e comportamentos, e separa o que é rotina do que é risco.",
     status: "ANALYZING",
   },
   {
@@ -53,7 +53,7 @@ export const intelligencePipeline = [
   { id: "response", label: "Resposta", code: "DISPATCH" },
 ] as const;
 
-/** Log simulado — apenas ilustrativo, não representa dados reais. */
+/** Log simulado: apenas ilustrativo, não representa dados reais. */
 export const simulatedEvents = [
   { cam: "CAM-0217", text: "Movimento em área restrita", level: "alto" },
   { cam: "LPR-0042", text: "Veículo com restrição identificado", level: "alto" },

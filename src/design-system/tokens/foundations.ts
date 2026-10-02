@@ -1,5 +1,5 @@
 /**
- * RealSeg — Foundation tokens: spacing, radius, borders, shadows, motion,
+ * RealSeg: Foundation tokens: spacing, radius, borders, shadows, motion,
  * breakpoints, z-index e camadas de profundidade.
  */
 
@@ -47,7 +47,7 @@ export const shadows = {
   xl: { value: "0 40px 120px -40px rgba(0, 0, 0, 0.85)", use: "Modais." },
 } as const;
 
-/** Glow é SINAL de inteligência — nunca decoração. */
+/** Glow é SINAL de inteligência: nunca decoração. */
 export const glows = {
   sm: {
     value: "0 0 0 1px rgba(0, 230, 209, 0.25), 0 0 12px -2px rgba(0, 230, 209, 0.45)",

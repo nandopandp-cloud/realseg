@@ -31,7 +31,7 @@ export function Colors() {
       description={
         <>
           O ambiente é escuro. <span className="text-cyan">O ciano é o sinal.</span> Essa é a essência visual da
-          RealSeg. Componentes consomem somente tokens semânticos — nunca hex direto.
+          RealSeg. Componentes consomem somente tokens semânticos, nunca hex direto.
         </>
       }
     >
@@ -144,7 +144,7 @@ export function Colors() {
                   ["status.info", "text-info", semantic.status.info],
                 ] as const
               ).map(([t, tw, v]) => (
-                <tr key={t} className="border-b border-line-subtle last:border-0 hover:bg-panel/40">
+                <tr key={t} className="border-b border-line-subtle last:border-0 rs-hover-row">
                   <td className="px-4 py-2.5 font-data text-[12px] text-cyan">color.{t}</td>
                   <td className="px-4 py-2.5 font-data text-[11px] text-fg-secondary">{tw}</td>
                   <td className="px-4 py-2.5 font-data text-[11px] text-muted">{v}</td>
@@ -187,7 +187,7 @@ export function Colors() {
                     <span
                       className={cn(
                         "ml-1 font-semibold",
-                        g === "—" ? "text-critical" : g === "AA Large" ? "text-warning" : "",
+                        g === "Falha" ? "text-critical" : g === "AA Large" ? "text-warning" : "",
                       )}
                       style={
                         g.startsWith("AA") && g !== "AA Large"

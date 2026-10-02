@@ -122,7 +122,7 @@ export function Stepper({ steps, current, className }: { steps: string[]; curren
 }
 
 /**
- * Security Loader — loading de marca para telas inteiras e boot de sistemas.
+ * Security Loader: loading de marca para telas inteiras e boot de sistemas.
  * Símbolo RealSeg + linha cyan + "SECURITY INTELLIGENCE".
  */
 export function SecurityLoader({ label = "Carregando", className }: { label?: string; className?: string }) {

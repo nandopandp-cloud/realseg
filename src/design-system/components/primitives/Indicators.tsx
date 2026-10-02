@@ -12,7 +12,7 @@ const dot: Record<StatusTone, string> = {
   neutral: "bg-muted",
 };
 
-/** Ponto de status. `live` adiciona o pulso — somente para estados realmente ativos. */
+/** Ponto de status. `live` adiciona o pulso: somente para estados realmente ativos. */
 export function StatusDot({
   tone = "accent",
   live = true,
@@ -30,7 +30,7 @@ export function StatusDot({
   );
 }
 
-/** Kicker — micro label de abertura de seção. */
+/** Kicker: micro label de abertura de seção. */
 export function Kicker({
   children,
   className,

@@ -1,5 +1,5 @@
 /*
- * RealSeg Design System — utilitários e keyframes da linguagem visual.
+ * RealSeg Design System: utilitários e keyframes da linguagem visual.
  * Tokens (cores, tipografia, raios…) vivem em tokens.css (gerado).
  */
 
@@ -138,7 +138,7 @@
 }
 
 /* ---------- Linguagem gráfica ---------- */
-/* Grid base 24px · linhas 1px · opacidade 5–12% (Brandbook 08.01) */
+/* Grid base 24px · linhas 1px · opacidade 5 a 12% (Brandbook 08.01) */
 @utility rs-grid {
   background-image:
     linear-gradient(to right, rgb(117 180 201 / 0.08) 1px, transparent 1px),
@@ -168,7 +168,7 @@
   mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
 }
 
-/* Frame — elemento de foco (cantoneiras). Cor via --rs-frame-color, tamanho via --rs-frame-size. */
+/* Frame: elemento de foco (cantoneiras). Cor via --rs-frame-color, tamanho via --rs-frame-size. */
 @utility rs-frame {
   --c: var(--rs-frame-color, var(--rs-cyan));
   --l: var(--rs-frame-size, 12px);
@@ -346,3 +346,48 @@ dialog::backdrop {
 
 /* Utilitários tipográficos usados dinamicamente (type-${variant}) */
 @source inline("type-{display-xl,display-lg,display-md,heading-xl,heading-lg,heading-md,heading-sm,body-lg,body-md,body-sm,label-lg,label-md,label-sm,micro,data}");
+
+/* ---------- Hover oficial ---------- */
+/* Superfícies interativas: eleva 2px, borda cyan e brilho difuso. */
+@utility rs-hover {
+  transition:
+    transform var(--rs-duration-slow) var(--rs-ease-standard),
+    border-color var(--rs-duration-normal) var(--rs-ease-standard),
+    box-shadow var(--rs-duration-slow) var(--rs-ease-standard),
+    background-color var(--rs-duration-normal) var(--rs-ease-standard);
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgb(0 230 209 / 0.4);
+    box-shadow:
+      0 22px 50px -26px rgb(0 230 209 / 0.45),
+      0 0 0 1px rgb(0 230 209 / 0.08);
+  }
+}
+/* Painéis e specimens: realce de borda e superfície, sem deslocamento. */
+@utility rs-hover-soft {
+  transition:
+    border-color var(--rs-duration-normal) var(--rs-ease-standard),
+    background-color var(--rs-duration-normal) var(--rs-ease-standard),
+    box-shadow var(--rs-duration-slow) var(--rs-ease-standard);
+  &:hover {
+    border-color: rgb(0 230 209 / 0.28);
+    box-shadow:
+      0 0 0 1px rgb(0 230 209 / 0.06),
+      0 24px 60px -40px rgb(0 230 209 / 0.4);
+  }
+}
+/* Linhas de lista/tabela: faixa cyan à esquerda + fundo panel. */
+@utility rs-hover-row {
+  transition:
+    background-color var(--rs-duration-fast) var(--rs-ease-standard),
+    box-shadow var(--rs-duration-fast) var(--rs-ease-standard);
+  &:hover {
+    background-color: rgb(11 34 49 / 0.6);
+    box-shadow: inset 2px 0 0 var(--rs-cyan);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rs-hover:hover {
+    transform: none;
+  }
+}

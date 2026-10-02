@@ -24,7 +24,7 @@ export function Cards() {
           Superfícies com <span className="rs-text-gradient">propósito.</span>
         </>
       }
-      description="Escuros, borda sutil, raio de 20px e hover elegante. Nunca cards brancos. O tipo de card é escolhido pelo conteúdo — não pela decoração."
+      description="Escuros, borda sutil, raio de 20px e hover elegante. Nunca cards brancos. O tipo de card é escolhido pelo conteúdo, não pela decoração."
     >
       <SubSection title="Base · Elevated · Interactive">
         <div className="grid gap-4 md:grid-cols-3">

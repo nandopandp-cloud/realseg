@@ -14,7 +14,7 @@ function stamp(offsetSec = 0, from = Date.now()) {
   return d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
 }
 
-/** Fluxo de eventos simulado — ilustra a esteira evento → classificação → resposta. */
+/** Fluxo de eventos simulado: ilustra a esteira evento → classificação → resposta. */
 export function EventLog() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref);

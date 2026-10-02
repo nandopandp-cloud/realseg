@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { StatusDot, type StatusTone } from "@/design-system/components/primitives/Indicators";
 
 /**
- * Badge — status, categoria, tecnologia, segurança e LIVE.
+ * Badge: status, categoria, tecnologia, segurança e LIVE.
  * - status: preenchido sólido, com ponto (ONLINE, ALERTA, CRÍTICO)
  * - soft: fundo translúcido (estado secundário)
  * - outline: categorias e tags (Cidades, IA, LPR)
@@ -51,7 +51,7 @@ export function Badge({
         variant === "status" && solid[tone],
         variant === "soft" && cn("border", soft[tone]),
         variant === "outline" &&
-          "border border-cyan/35 text-fg-secondary normal-case tracking-normal font-semibold text-xs h-7 px-2.5 rounded-rs-sm",
+          "border border-cyan/35 text-fg-secondary normal-case tracking-normal font-semibold text-xs h-7 px-2.5 rounded-rs-sm transition-[border-color,color,background-color] duration-(--rs-duration-fast) hover:border-cyan hover:bg-cyan/[0.08] hover:text-cyan",
         className,
       )}
     >

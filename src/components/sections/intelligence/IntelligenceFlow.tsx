@@ -85,7 +85,7 @@ export function IntelligenceFlow() {
             className="mt-6 text-[clamp(2.25rem,4.2vw,4.25rem)]"
           />
           <p data-reveal className="mt-6 max-w-md text-base leading-relaxed text-muted md:text-lg">
-            Uma camada de inteligência que conecta câmeras, sensores e pessoas — e transforma milhares de sinais em
+            Uma camada de inteligência que conecta câmeras, sensores e pessoas, e transforma milhares de sinais em
             poucas decisões certas.
           </p>
 

@@ -44,8 +44,8 @@ export function Overview({ counts }: { counts: { tokens: number; components: num
             Digital <Highlight>Language.</Highlight>
           </h1>
           <p className="type-body-lg mt-8 max-w-xl text-fg-secondary">
-            A tradução do Brandbook em tokens, componentes e padrões reutilizáveis. Qualquer interface RealSeg — site,
-            central, dashboard ou app — deve ser reconhecida como RealSeg sem precisar ver o logo.
+            A tradução do Brandbook em tokens, componentes e padrões reutilizáveis. Qualquer interface RealSeg (site,
+            central, dashboard ou app) deve ser reconhecida como RealSeg sem precisar ver o logo.
           </p>
           <dl className="mt-10 grid max-w-lg grid-cols-3 divide-x divide-line-subtle rounded-rs-lg border border-line bg-section">
             {[
@@ -100,7 +100,7 @@ export function Overview({ counts }: { counts: { tokens: number; components: num
 
       {/* Princípio central */}
       <div className="mt-20">
-        <p className="type-micro text-subtle">Princípio central — Security Intelligence</p>
+        <p className="type-micro text-subtle">Princípio central · Security Intelligence</p>
         <ol className="mt-6 grid gap-px overflow-hidden rounded-rs-lg border border-line bg-line-subtle sm:grid-cols-2 xl:grid-cols-5">
           {principles.map((p, i) => (
             <li
@@ -132,7 +132,7 @@ export function Overview({ counts }: { counts: { tokens: number; components: num
             <p className="type-heading-lg mt-2 text-fg">Do token ao produto.</p>
           </div>
           <p className="type-body-sm max-w-md text-muted">
-            Cada camada consome apenas a anterior. Componentes nunca usam valores brutos — somente tokens semânticos.
+            Cada camada consome apenas a anterior. Componentes nunca usam valores brutos, somente tokens semânticos.
           </p>
         </div>
         <ol className="relative mt-8 grid grid-cols-2 gap-2 sm:grid-cols-5">

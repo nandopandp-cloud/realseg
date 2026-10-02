@@ -24,7 +24,7 @@ export function Graphics() {
           Radar. HUD. Scan. <span className="rs-text-gradient">Signal.</span>
         </>
       }
-      description="Componentes gráficos proprietários — a parte da identidade que nenhum design system genérico tem. Usados com hierarquia: no máximo um elemento dominante (radar, mapa) por tela."
+      description="Componentes gráficos proprietários: a parte da identidade que nenhum design system genérico tem. Usados com hierarquia: no máximo um elemento dominante (radar, mapa) por tela."
     >
       <SubSection
         title="SecurityRadar"

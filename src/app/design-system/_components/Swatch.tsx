@@ -37,7 +37,7 @@ export function Swatch({
         onClick={() => copy(value)}
         aria-label={`Copiar ${value}`}
         className={cn(
-          "rs-focus relative w-full overflow-hidden rounded-rs-md border border-line transition-transform duration-(--rs-duration-normal) ease-rs-standard hover:-translate-y-0.5",
+          "rs-focus relative w-full overflow-hidden rounded-rs-md border border-line transition-transform duration-(--rs-duration-normal) ease-rs-standard hover:-translate-y-1 hover:border-cyan/50 hover:shadow-[0_22px_44px_-22px_rgb(0_230_209/0.45)]",
           size === "lg" ? "h-28" : "h-16",
         )}
         style={{ background: value }}

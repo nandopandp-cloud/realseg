@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 type Variant = "modal" | "drawer" | "sheet";
 
 /**
- * Dialog — base de Modal, Drawer e Bottom Sheet.
+ * Dialog: base de Modal, Drawer e Bottom Sheet.
  * Usa <dialog> nativo: foco preso, Esc fecha, inerte por trás, sem dependências.
  * Sempre: dark, glass, borda sutil, hierarquia clara (ícone · título · descrição · ações).
  */

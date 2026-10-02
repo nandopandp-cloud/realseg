@@ -1,56 +1,50 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { AUTH_PATH, LOGIN_PATH, SESSION_COOKIE, getCredentials, verifySession } from "@/design-system/auth/session";
 
 /**
- * Protege o Design System (material interno) com HTTP Basic Auth.
+ * Protege o Design System (material interno) com sessão própria e tela de acesso da marca.
  *
- * Variáveis de ambiente (Vercel → Settings → Environment Variables):
+ * Variáveis de ambiente (Vercel > Settings > Environment Variables):
  *   DESIGN_SYSTEM_PASSWORD  obrigatória em produção
  *   DESIGN_SYSTEM_USER      opcional (padrão: "realseg")
+ *   DESIGN_SYSTEM_SECRET    opcional (assinatura do cookie; padrão: derivado da senha)
  *
  * Sem senha configurada:
- *   - desenvolvimento: acesso livre (com aviso no header da resposta);
- *   - produção: a rota responde 404 — falha fechada, nada é exposto.
+ *   - desenvolvimento: acesso livre;
+ *   - produção: todas as rotas respondem 404 (falha fechada, nada é exposto).
  */
-export function proxy(request: NextRequest) {
-  const password = process.env.DESIGN_SYSTEM_PASSWORD;
-  const user = process.env.DESIGN_SYSTEM_USER || "realseg";
+export async function proxy(request: NextRequest) {
+  const { password, secret } = getCredentials();
+  const { pathname, search } = request.nextUrl;
 
-  if (!password) {
+  if (!password || !secret) {
     if (process.env.NODE_ENV === "production") {
       return new NextResponse("Not Found", { status: 404, headers: { "X-Robots-Tag": "noindex, nofollow" } });
     }
-    return withPrivateHeaders(NextResponse.next());
+    return privateHeaders(NextResponse.next());
   }
 
-  const header = request.headers.get("authorization") ?? "";
-  if (header.startsWith("Basic ")) {
-    const [u, ...rest] = atob(header.slice(6)).split(":");
-    if (safeEqual(u, user) && safeEqual(rest.join(":"), password)) {
-      return withPrivateHeaders(NextResponse.next());
-    }
+  // Tela de acesso e endpoint de login são públicos (dentro da área com noindex).
+  if (pathname === LOGIN_PATH || pathname === AUTH_PATH) return privateHeaders(NextResponse.next());
+
+  if (await verifySession(request.cookies.get(SESSION_COOKIE)?.value, secret)) {
+    return privateHeaders(NextResponse.next());
   }
 
-  return new NextResponse("Autenticação necessária.", {
-    status: 401,
-    headers: {
-      "WWW-Authenticate": 'Basic realm="RealSeg Design System", charset="UTF-8"',
-      "X-Robots-Tag": "noindex, nofollow",
-    },
-  });
+  // Imagens e arquivos: 401 simples. Páginas: redireciona para a tela de acesso.
+  if (pathname.startsWith("/design-system/brandbook/")) {
+    return new NextResponse("Unauthorized", { status: 401, headers: { "X-Robots-Tag": "noindex, nofollow" } });
+  }
+  const url = request.nextUrl.clone();
+  url.pathname = LOGIN_PATH;
+  url.search = `?next=${encodeURIComponent(pathname + search)}`;
+  return privateHeaders(NextResponse.redirect(url));
 }
 
-function withPrivateHeaders(res: NextResponse) {
+function privateHeaders(res: NextResponse) {
   res.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
   res.headers.set("Cache-Control", "private, no-store");
   return res;
-}
-
-/** Comparação em tempo constante (evita timing attacks triviais). */
-function safeEqual(a: string, b: string) {
-  if (a.length !== b.length) return false;
-  let diff = 0;
-  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
-  return diff === 0;
 }
 
 export const config = {

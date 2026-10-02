@@ -16,7 +16,7 @@ const hidden: Record<RevealVariant, CSSProperties> = {
 const shown: CSSProperties = { opacity: 1, transform: "none", filter: "none", clipPath: "inset(0 0 0% 0)" };
 
 /**
- * Reveal — entrada por scroll (IntersectionObserver, sem dependências).
+ * Reveal: entrada por scroll (IntersectionObserver, sem dependências).
  * Somente transform / opacity / filter / clip-path: nenhum layout shift.
  * Com reduced-motion o conteúdo aparece imediatamente.
  */
@@ -33,7 +33,7 @@ export function Reveal({
   variant?: RevealVariant;
   /** ms */
   delay?: number;
-  /** ms — padrão: cinematic (clip) ou slow (demais) */
+  /** ms: padrão: cinematic (clip) ou slow (demais) */
   duration?: number;
   once?: boolean;
   className?: string;

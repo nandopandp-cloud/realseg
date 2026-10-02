@@ -22,7 +22,7 @@ export type Column<T> = {
 type State = "default" | "loading" | "empty" | "error";
 
 /**
- * DataTable — legível em dark: zebra sutil, hover panel, seleção com barra cyan,
+ * DataTable: legível em dark: zebra sutil, hover panel, seleção com barra cyan,
  * cabeçalho em micro uppercase, números tabulares.
  */
 export function DataTable<T extends { id: string }>({
@@ -222,7 +222,7 @@ export function DataTable<T extends { id: string }>({
                       className={cn(
                         "relative border-b border-line-subtle transition-colors duration-(--rs-duration-fast)",
                         ri % 2 === 1 && "bg-white/[0.012]",
-                        isSel ? "bg-cyan/[0.06] shadow-[inset_2px_0_0_#00E6D1]" : "hover:bg-panel/60",
+                        isSel ? "bg-cyan/[0.06] shadow-[inset_2px_0_0_#00E6D1]" : "rs-hover-row",
                       )}
                     >
                       {selectable && (

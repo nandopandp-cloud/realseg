@@ -14,5 +14,5 @@ export function grade(ratio: number) {
   if (ratio >= 7) return "AAA";
   if (ratio >= 4.5) return "AA";
   if (ratio >= 3) return "AA Large";
-  return "—";
+  return "Falha";
 }

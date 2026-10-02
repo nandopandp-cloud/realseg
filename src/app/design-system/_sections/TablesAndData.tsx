@@ -17,7 +17,7 @@ export function Tables() {
           Densidade com <span className="rs-text-gradient">legibilidade.</span>
         </>
       }
-      description="DataTable, CompactTable e SecurityEventTable. Ordenação, seleção, expansão e estados de loading, vazio e erro — legíveis em dark mode."
+      description="DataTable, CompactTable e SecurityEventTable. Ordenação, seleção, expansão e estados de loading, vazio e erro, legíveis em dark mode."
     >
       <ComponentDoc
         name="SecurityEventTable"
@@ -95,7 +95,7 @@ export function Data() {
           <span className="font-extrabold text-fg">
             +<CountUp value={2400} />
           </span>{" "}
-          — dispara uma vez ao entrar na viewport.
+          . Dispara uma vez ao entrar na viewport.
         </p>
       </SubSection>
 

@@ -20,7 +20,7 @@ const gapMap: Record<Space, string> = {
   24: "gap-24",
 };
 
-/** Container — 1280px (padrão) ou 1440px (wide), gutter fluido. */
+/** Container: 1280px (padrão) ou 1440px (wide), gutter fluido. */
 export function Container({
   wide,
   as: Tag = "div",
@@ -35,7 +35,7 @@ export function Container({
   return <Tag className={cn(wide ? "rs-container-wide" : "rs-container", className)}>{children}</Tag>;
 }
 
-/** Stack — empilhamento vertical com espaçamento de token. */
+/** Stack: empilhamento vertical com espaçamento de token. */
 export function Stack({
   gap = 4,
   align,
@@ -63,7 +63,7 @@ export function Stack({
   );
 }
 
-/** Inline — linha com quebra, espaçamento de token. */
+/** Inline: linha com quebra, espaçamento de token. */
 export function Inline({
   gap = 3,
   align = "center",
@@ -105,7 +105,7 @@ const colsMap = {
   12: "grid-cols-4 md:grid-cols-8 lg:grid-cols-12",
 } as const;
 
-/** Grid — responsivo mobile-first; 12 colunas no desktop. */
+/** Grid: responsivo mobile-first; 12 colunas no desktop. */
 export function Grid({
   cols = 3,
   gap = 6,
@@ -120,7 +120,7 @@ export function Grid({
   return <div className={cn("grid", colsMap[cols], gapMap[gap], className)}>{children}</div>;
 }
 
-/** Section — ritmo vertical oficial entre seções (96px desktop / 64px mobile). */
+/** Section: ritmo vertical oficial entre seções (96px desktop / 64px mobile). */
 export function Section({
   id,
   labelledBy,
@@ -153,7 +153,7 @@ export function Section({
   );
 }
 
-/** Split — duas colunas (texto + mídia). `ratio` controla a proporção no desktop. */
+/** Split: duas colunas (texto + mídia). `ratio` controla a proporção no desktop. */
 export function Split({
   ratio = "5/7",
   reverse,
@@ -191,7 +191,7 @@ export function Split({
   );
 }
 
-/** SidebarLayout — documentação e ferramentas internas. Sidebar fixa a partir de lg. */
+/** SidebarLayout: documentação e ferramentas internas. Sidebar fixa a partir de lg. */
 export function SidebarLayout({
   sidebar,
   children,
@@ -211,7 +211,7 @@ export function SidebarLayout({
   );
 }
 
-/** DashboardLayout — sidebar + topbar + área de conteúdo com grid denso. */
+/** DashboardLayout: sidebar + topbar + área de conteúdo com grid denso. */
 export function DashboardLayout({
   sidebar,
   topbar,

@@ -31,7 +31,7 @@ export function InputStates() {
         label="Foco (clique)"
         placeholder="Seu nome"
         icon={<User className="size-4" />}
-        hint="O foco usa a identidade cyan — nunca o azul do navegador."
+        hint="O foco usa a identidade cyan, nunca o azul do navegador."
       />
       <Input label="Preenchido" defaultValue="Fernando Rodrigues" icon={<User className="size-4" />} success />
       <Input

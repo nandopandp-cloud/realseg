@@ -1,5 +1,5 @@
 /**
- * RealSeg — Typography tokens
+ * RealSeg: Typography tokens
  * Fonte: Brandbook v1.0 · 04 Tipografia. Família principal: Inter.
  * JetBrains Mono é reservada a DADOS (coordenadas, placas, timestamps, códigos).
  */
@@ -37,7 +37,7 @@ export const typeScale = {
     letterSpacing: "-0.04em",
     weight: 800,
     uppercase: true,
-    range: "56–96px",
+    range: "56 a 96px",
     use: "Hero. Uma por página.",
   },
   "display-lg": {
@@ -46,7 +46,7 @@ export const typeScale = {
     letterSpacing: "-0.035em",
     weight: 800,
     uppercase: true,
-    range: "44–72px",
+    range: "44 a 72px",
     use: "Abertura de seção de alto impacto.",
   },
   "display-md": {
@@ -55,7 +55,7 @@ export const typeScale = {
     letterSpacing: "-0.03em",
     weight: 800,
     uppercase: true,
-    range: "36–56px",
+    range: "36 a 56px",
     use: "Títulos de seção.",
   },
   "heading-xl": {
@@ -63,7 +63,7 @@ export const typeScale = {
     lineHeight: "1.05",
     letterSpacing: "-0.025em",
     weight: 800,
-    range: "28–40px",
+    range: "28 a 40px",
     use: "Títulos de página em produtos.",
   },
   "heading-lg": {
@@ -71,7 +71,7 @@ export const typeScale = {
     lineHeight: "1.15",
     letterSpacing: "-0.02em",
     weight: 700,
-    range: "24–32px",
+    range: "24 a 32px",
     use: "Títulos de bloco, modais.",
   },
   "heading-md": {

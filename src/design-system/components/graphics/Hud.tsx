@@ -23,7 +23,7 @@ const toneHex: Record<StatusTone, string> = {
 };
 
 /**
- * SecurityHUD — painel técnico flutuante (Layer 3).
+ * SecurityHUD: painel técnico flutuante (Layer 3).
  * title · status · metadata · coordenadas · timestamp · indicador.
  * Conteúdo de exemplo deve ser sinalizado como ilustrativo.
  */
@@ -54,10 +54,15 @@ export function SecurityHUD({
   const clock = useClock();
   const ts = timestamp === true ? clock : timestamp;
   return (
-    <div
-      className={cn("rs-glass min-w-52 rounded-rs-sm p-3.5", positioned(className), framed && "rs-frame", className)}
-      style={framed ? ({ "--rs-frame-color": toneHex[tone], "--rs-frame-size": "8px" } as CSSProperties) : undefined}
-    >
+    <div className={cn("rs-glass min-w-52 rounded-rs-sm p-3.5", positioned(className), className)}>
+      {/* Frame em camada própria: rs-glass e rs-frame usam a propriedade background. */}
+      {framed && (
+        <span
+          aria-hidden
+          className="rs-frame pointer-events-none absolute inset-0"
+          style={{ "--rs-frame-color": toneHex[tone], "--rs-frame-size": "8px" } as CSSProperties}
+        />
+      )}
       <div className="flex items-center justify-between gap-4">
         <span className="type-micro text-[10px] text-fg">{title}</span>
         {status && (
@@ -104,7 +109,7 @@ export function SecurityHUD({
 }
 
 /**
- * SecurityTarget — elemento de foco / bounding box. Identificação e destaque.
+ * SecurityTarget: elemento de foco / bounding box. Identificação e destaque.
  * `lock` executa a animação de travamento ao montar.
  */
 export function SecurityTarget({
@@ -170,7 +175,7 @@ export function SecurityTarget({
   );
 }
 
-/** SecurityNode — ponto de rede (câmera, sensor, evento). */
+/** SecurityNode: ponto de rede (câmera, sensor, evento). */
 export function SecurityNode({
   tone = "accent",
   size = "md",
@@ -212,7 +217,7 @@ export function SecurityNode({
   );
 }
 
-/** SecurityDataPoint — dado extraído com linha de ligação. */
+/** SecurityDataPoint: dado extraído com linha de ligação. */
 export function SecurityDataPoint({
   label,
   value,
@@ -236,7 +241,7 @@ export function SecurityDataPoint({
   );
 }
 
-/** SecurityLens — anéis concêntricos: visão e foco (assinatura "Lens"). */
+/** SecurityLens: anéis concêntricos: visão e foco (assinatura "Lens"). */
 export function SecurityLens({ size = 120, className }: { size?: number; className?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 120 120" aria-hidden className={className}>
@@ -257,7 +262,7 @@ export function SecurityLens({ size = 120, className }: { size?: number; classNa
   );
 }
 
-/** Scan flare — cruz de luz (assinatura "Scan"). */
+/** Scan flare: cruz de luz (assinatura "Scan"). */
 export function ScanFlare({ size = 120, className }: { size?: number; className?: string }) {
   return (
     <div aria-hidden className={cn("relative", className)} style={{ width: size, height: size }}>

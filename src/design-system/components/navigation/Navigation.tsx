@@ -80,7 +80,7 @@ export function Tabs({
               onClick={() => select(t.id)}
               onKeyDown={(e) => onKey(e, i)}
               className={cn(
-                "rs-focus relative inline-flex shrink-0 items-center gap-2 type-label-md transition-colors duration-(--rs-duration-fast)",
+                "rs-focus group/tab relative inline-flex shrink-0 items-center gap-2 type-label-md transition-colors duration-(--rs-duration-fast)",
                 variant === "underline" && cn("h-11 px-3", sel ? "text-cyan" : "text-muted hover:text-fg"),
                 variant === "segmented" &&
                   cn(
@@ -98,7 +98,7 @@ export function Tabs({
                   aria-hidden
                   className={cn(
                     "absolute inset-x-2 -bottom-px h-[2px] origin-center bg-cyan transition-transform duration-(--rs-duration-slow) ease-rs-standard",
-                    sel ? "scale-x-100" : "scale-x-0",
+                    sel ? "scale-x-100" : "scale-x-0 group-hover/tab:scale-x-50 group-hover/tab:opacity-50",
                   )}
                 />
               )}
@@ -143,7 +143,10 @@ export function Breadcrumb({
                   {it.label}
                 </span>
               ) : (
-                <Link href={it.href} className="rs-focus rounded-rs-xs text-muted transition-colors hover:text-fg">
+                <Link
+                  href={it.href}
+                  className="rs-focus rounded-rs-xs bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat text-muted transition-[color,background-size] duration-(--rs-duration-slow) ease-rs-standard hover:bg-[length:100%_1px] hover:text-cyan"
+                >
                   {it.label}
                 </Link>
               )}
@@ -311,7 +314,9 @@ export function Sidebar({
                           {it.icon}
                         </span>
                       )}
-                      <span className="flex-1 truncate">{it.label}</span>
+                      <span className="flex-1 truncate transition-transform duration-(--rs-duration-normal) ease-rs-standard group-hover:translate-x-0.5">
+                        {it.label}
+                      </span>
                       {it.badge}
                     </Link>
                   </li>

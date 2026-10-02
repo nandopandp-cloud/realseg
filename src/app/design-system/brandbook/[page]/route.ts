@@ -3,7 +3,7 @@ import path from "node:path";
 
 /**
  * Serve as páginas do Brandbook (fora de /public) somente através da rota protegida.
- * Lista fechada de arquivos — nenhum caminho arbitrário é aceito.
+ * Lista fechada de arquivos: nenhum caminho arbitrário é aceito.
  */
 const PAGES = new Set([
   "00-capa",

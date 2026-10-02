@@ -21,7 +21,7 @@ import { Brandbook } from "./_sections/Brandbook";
 
 const { palette, semantic, typeScale, spacing, radius, shadows, glows, motion, zIndex, icons } = DS;
 
-/** Contagens derivadas do próprio sistema — nunca digitadas à mão. */
+/** Contagens derivadas do próprio sistema: nunca digitadas à mão. */
 const counts = {
   tokens:
     Object.keys(palette).length +

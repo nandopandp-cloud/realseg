@@ -38,7 +38,7 @@ export function useLiveInterval(fn: () => void, ms: number, active = true) {
 
 const noopSubscribe = () => () => {};
 
-/** false no servidor e durante a hidratação; true depois — sem setState em effect. */
+/** false no servidor e durante a hidratação; true depois: sem setState em effect. */
 export function useIsClient() {
   return useSyncExternalStore(
     noopSubscribe,

@@ -1,6 +1,6 @@
 # realseg
 
-Landing page da RealSeg — **Security Intelligence**.
+Landing page da RealSeg, **Security Intelligence**.
 
 ## Stack
 
@@ -15,17 +15,18 @@ npm run lint
 
 ## Design System (interno)
 
-Documentação viva em **`/design-system`** e demo de produto em **`/design-system/demo`** — material interno, fora da navegação do site.
+Documentação viva em **`/design-system`** e demo de produto em **`/design-system/demo`**. Material interno, fora da navegação do site.
 
-**Acesso protegido** por HTTP Basic Auth (`src/proxy.ts`). Configure na Vercel (Settings → Environment Variables):
+**Acesso protegido** por tela de login própria (`/design-system/acesso`) e sessão em cookie assinado (HMAC, httpOnly, 12 horas). Proteção em `src/proxy.ts`. Configure na Vercel (Settings > Environment Variables):
 
 | Variável | Obrigatória | Descrição |
 | --- | --- | --- |
 | `DESIGN_SYSTEM_PASSWORD` | sim (produção) | Senha de acesso. **Sem ela, a rota responde 404 em produção.** |
 | `DESIGN_SYSTEM_USER` | não | Usuário (padrão `realseg`). |
+| `DESIGN_SYSTEM_SECRET` | não | Segredo da assinatura do cookie. Padrão: derivado da senha (trocar a senha encerra todas as sessões). |
 
 Em `npm run dev` a rota fica aberta sem senha. Todas as respostas levam `noindex`; a rota não aparece em sitemap nem em `robots.txt`.
-As páginas do Brandbook ficam em `src/design-system/assets/brandbook` (fora de `/public`) e só são servidas pela rota protegida.
+As páginas do Brandbook ficam em `src/design-system/assets/brandbook` (fora de `/public`) e só são servidas com sessão válida.
 
 **Uso nos produtos**
 
@@ -33,7 +34,7 @@ As páginas do Brandbook ficam em `src/design-system/assets/brandbook` (fora de 
 import { Button, Card, SecurityHUD, SecurityRadar } from "@/design-system";
 ```
 
-**Tokens** — fonte única em `src/design-system/tokens/*.ts`. `npm run tokens` gera `styles/tokens.css` (variáveis `--rs-*` + tema Tailwind); roda automaticamente antes de `dev` e `build`. A landing consome os mesmos tokens.
+**Tokens**: fonte única em `src/design-system/tokens/*.ts`. `npm run tokens` gera `styles/tokens.css` (variáveis `--rs-*` + tema Tailwind); roda automaticamente antes de `dev` e `build`. A landing consome os mesmos tokens.
 
 ## Estrutura
 
@@ -71,12 +72,12 @@ Seções com narrativa controlada pelo scroll usam `position: sticky` + ScrollTr
 
 ## Conteúdo a confirmar antes de publicar
 
-- `src/data/metrics.ts` — números da referência visual (+2.400, +150…).
-- `src/data/cases.ts` — textos e resultados dos cases (apenas o primeiro vem da referência).
-- `src/data/clients.ts` — nomes da faixa de confiança; substituir por logos SVG oficiais.
-- `src/data/insights.ts` — posts de exemplo; links apontam para `#`.
-- `src/data/site.ts` — domínio, CNPJ, e-mail e redes sociais.
-- `ContactForm` e newsletter do footer — sem backend; ver `TODO` para integrar ao CRM.
+- `src/data/metrics.ts`: números da referência visual (+2.400, +150…).
+- `src/data/cases.ts`: textos e resultados dos cases (apenas o primeiro vem da referência).
+- `src/data/clients.ts`: nomes da faixa de confiança; substituir por logos SVG oficiais.
+- `src/data/insights.ts`: posts de exemplo; links apontam para `#`.
+- `src/data/site.ts`: domínio, CNPJ, e-mail e redes sociais.
+- `ContactForm` e newsletter do footer: sem backend; ver `TODO` para integrar ao CRM.
 
 Os elementos HUD (placas, câmeras, alertas, mapa) são ilustrativos e sinalizados na interface como dados simulados.
 

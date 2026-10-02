@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react";
 import { Activity, Blocks, Clock, Users } from "lucide-react";
 
 /**
- * PLACEHOLDER: valores da referência visual — confirmar com a RealSeg antes de publicar.
+ * PLACEHOLDER: valores da referência visual: confirmar com a RealSeg antes de publicar.
  * `value` é o número animado; `prefix`/`suffix` envolvem o número.
  * Para valores não numéricos (ex.: 24/7), use `static`.
  */

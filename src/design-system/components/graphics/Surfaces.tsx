@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * SecurityGrid — grid tecnológico extremamente sutil (base 24px, linhas 1px, 5–12%).
+ * SecurityGrid: grid tecnológico extremamente sutil (base 24px, linhas 1px, 5 a 12%).
  * Layer 0. Nunca interativo.
  */
 export function SecurityGrid({
@@ -13,7 +13,7 @@ export function SecurityGrid({
 }: {
   size?: 24 | 48 | 96;
   fade?: "radial" | "y" | "x" | "none";
-  /** 0.5–1.5 — multiplica a opacidade base (8%). */
+  /** 0.5 a 1.5: multiplica a opacidade base (8%). */
   intensity?: number;
   className?: string;
 }) {
@@ -37,7 +37,7 @@ export function SecurityGrid({
 }
 
 /**
- * SecurityScan — linha cyan que atravessa a superfície. Representa monitoramento.
+ * SecurityScan: linha cyan que atravessa a superfície. Representa monitoramento.
  * Coloque dentro de um container `relative overflow-hidden`.
  */
 export function SecurityScan({
@@ -121,7 +121,7 @@ export function Atmosphere({
 /** Container de demonstração para gráficos: superfície escura com borda. */
 export function GraphicStage({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div className={cn("relative overflow-hidden rounded-rs-lg border border-line bg-canvas", className)}>
+    <div className={cn("rs-hover-soft relative overflow-hidden rounded-rs-lg border border-line bg-canvas", className)}>
       {children}
     </div>
   );

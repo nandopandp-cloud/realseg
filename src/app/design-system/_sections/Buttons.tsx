@@ -12,7 +12,7 @@ export function Buttons() {
           Ação clara. <span className="rs-text-gradient">Resposta imediata.</span>
         </>
       }
-      description="Brandbook 05 — altura 56/46/40px, Inter 700 uppercase, raio 12px. Microinterações: elevação −2px, glow suave, seta desliza no eixo X, transição de 200ms."
+      description="Brandbook 05: altura 56/46/40px, Inter 700 uppercase, raio 12px. Microinterações: elevação −2px, glow suave, seta desliza no eixo X, transição de 200ms."
     >
       <ButtonPlayground />
       <SubSection title="Variantes × estados">
@@ -35,12 +35,12 @@ export function Buttons() {
             "Hierarquia visual da ação.",
           ],
           ["size", '"sm" | "md" | "lg"', '"md"', "40 / 46 / 56px de altura."],
-          ["href", "string", "—", "Renderiza como link (Next Link)."],
-          ["icon", "ReactNode", "—", "Ícone à esquerda."],
+          ["href", "string", "nenhum", "Renderiza como link (Next Link)."],
+          ["icon", "ReactNode", "nenhum", "Ícone à esquerda."],
           ["arrow", "boolean", "true*", "Seta à direita. *Padrão em primary, secondary e link."],
           ["loading", "boolean", "false", "Mostra spinner, aplica aria-busy e desabilita."],
-          ["loadingLabel", "string", "—", "Texto durante o loading (ex.: “Agendando…”)."],
-          ["fullWidth", "boolean", "false", "Ocupa 100% — recomendado no mobile em CTAs."],
+          ["loadingLabel", "string", "nenhum", "Texto durante o loading (ex.: “Agendando…”)."],
+          ["fullWidth", "boolean", "false", "Ocupa 100%. Recomendado no mobile em CTAs."],
         ]}
         dos={[
           "Um único primary por área de decisão",

@@ -57,7 +57,7 @@ export function ChartFrame({
   className?: string;
 }) {
   return (
-    <figure className={cn("rounded-rs-lg border border-line bg-elevated p-5", className)}>
+    <figure className={cn("rs-hover-soft rounded-rs-lg border border-line bg-elevated p-5", className)}>
       <figcaption className="mb-5 flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="type-heading-sm text-fg">{title}</p>

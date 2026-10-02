@@ -1,5 +1,5 @@
 /**
- * RealSeg — Color tokens
+ * RealSeg: Color tokens
  * Fonte: Brandbook v1.0 · 03 Paleta de cores.
  *
  * Camada 1 (primitives): valores brutos. Nunca usar diretamente em componentes.
@@ -13,7 +13,7 @@ export const palette = {
   panel: "#0B2231", // hover, superfícies e destaques
   surface: "#0F2A3A", // superfícies evidenciadas
   cyan: "#00E6D1", // cor da inteligência: CTAs, links, indicadores
-  cyanLight: "#42FFF0", // highlights, hover, glow — uso restrito
+  cyanLight: "#42FFF0", // highlights, hover, glow: uso restrito
   white: "#F5FBFF", // texto principal
   muted: "#8295A6", // texto secundário
   subtle: "#4F6476", // metadados, legendas não essenciais

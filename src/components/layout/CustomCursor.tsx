@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { useMediaQuery } from "@/lib/hooks";
 
 /**
- * Cursor customizado — somente desktop com ponteiro fino e sem reduced-motion.
+ * Cursor customizado: somente desktop com ponteiro fino e sem reduced-motion.
  * Expande em elementos interativos; em `[data-cursor="TEXTO"]` mostra um rótulo.
  */
 export function CustomCursor() {

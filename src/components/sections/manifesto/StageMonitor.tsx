@@ -19,7 +19,7 @@ const FEEDS = [
 
 /**
  * "Monitor" que materializa cada etapa do processo.
- * Representação ilustrativa — não exibe dados reais.
+ * Representação ilustrativa: não exibe dados reais.
  */
 export function StageMonitor({ stage, className }: { stage: number; className?: string }) {
   const root = useRef<HTMLDivElement>(null);
@@ -79,7 +79,7 @@ export function StageMonitor({ stage, className }: { stage: number; className?: 
       </div>
 
       <div className="relative aspect-[16/10] lg:aspect-[16/8.5]">
-        {/* 01 — Observar: mosaico de câmeras */}
+        {/* 01 · Observar: mosaico de câmeras */}
         <Stage active={stage === 0} id={0}>
           <div className="grid h-full grid-cols-2 grid-rows-2 gap-1 p-1">
             {FEEDS.map((f, i) => (
@@ -104,7 +104,7 @@ export function StageMonitor({ stage, className }: { stage: number; className?: 
           </div>
         </Stage>
 
-        {/* 02 — Analisar: detecções */}
+        {/* 02 · Analisar: detecções */}
         <Stage active={stage === 1} id={1}>
           <div className="relative h-full">
             <Image
@@ -139,7 +139,7 @@ export function StageMonitor({ stage, className }: { stage: number; className?: 
           </div>
         </Stage>
 
-        {/* 03 — Alertar */}
+        {/* 03 · Alertar */}
         <Stage active={stage === 2} id={2}>
           <div className="relative h-full">
             <Image
@@ -169,7 +169,7 @@ export function StageMonitor({ stage, className }: { stage: number; className?: 
           </div>
         </Stage>
 
-        {/* 04 — Responder */}
+        {/* 04 · Responder */}
         <Stage active={stage === 3} id={3}>
           <div className="relative h-full">
             <CityMap />

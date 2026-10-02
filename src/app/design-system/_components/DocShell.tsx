@@ -35,6 +35,29 @@ import { Logo } from "@/design-system/brand/Logo";
 import { Sidebar, type SidebarGroup } from "@/design-system/components/navigation/Navigation";
 import { Badge } from "@/design-system/components/feedback/Badge";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+import { LogOut } from "lucide-react";
+import { Tooltip } from "@/design-system/components/feedback/Tooltip";
+
+/** Encerra a sessão da área interna e volta para a tela de acesso. */
+function SignOut() {
+  const router = useRouter();
+  return (
+    <Tooltip content="Sair da área interna" side="top">
+      <button
+        type="button"
+        aria-label="Sair"
+        onClick={async () => {
+          await fetch("/design-system/auth", { method: "DELETE" });
+          router.replace("/design-system/acesso");
+        }}
+        className="rs-focus grid size-9 shrink-0 place-items-center rounded-rs-sm border border-line text-muted transition-[color,border-color,background-color] duration-(--rs-duration-fast) hover:border-critical/50 hover:bg-critical/10 hover:text-critical"
+      >
+        <LogOut className="size-4" />
+      </button>
+    </Tooltip>
+  );
+}
 
 const ic = "size-4";
 export const docNav: SidebarGroup[] = [
@@ -97,7 +120,16 @@ export function DocShell({ children }: { children: ReactNode }) {
       { rootMargin: "-30% 0px -65% 0px" },
     );
     els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    // No fim da página a última seção não alcança a faixa central: marca manualmente.
+    const onScroll = () => {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8)
+        setActive(allIds[allIds.length - 1]);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      io.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -110,7 +142,11 @@ export function DocShell({ children }: { children: ReactNode }) {
       active={active}
       onNavigate={() => setOpen(false)}
       header={
-        <Link href="/design-system" className="rs-focus block rounded-rs-xs" aria-label="RealSeg Design System — topo">
+        <Link
+          href="/design-system"
+          className="rs-focus block rounded-rs-xs"
+          aria-label="RealSeg Design System, voltar ao topo"
+        >
           <Logo height={28} tagline={false} />
           <p className="type-micro mt-3 flex items-center gap-2 text-[9px] text-muted">
             Design System <span className="font-data tracking-normal text-cyan">v1.0</span>
@@ -128,9 +164,12 @@ export function DocShell({ children }: { children: ReactNode }) {
             </span>
             <Blocks className="size-3.5 transition-transform group-hover:translate-x-0.5" />
           </Link>
-          <Badge tone="warning" dot className="w-full justify-center">
-            Uso interno · Confidencial
-          </Badge>
+          <div className="flex items-center gap-2">
+            <Badge tone="warning" dot className="flex-1 justify-center">
+              Uso interno · Confidencial
+            </Badge>
+            <SignOut />
+          </div>
         </div>
       }
     />

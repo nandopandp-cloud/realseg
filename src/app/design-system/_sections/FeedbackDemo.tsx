@@ -169,7 +169,7 @@ export function ToastsAndTooltips() {
 export function Loaders() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr_0.8fr]">
-      <div className="space-y-6 rounded-rs-lg border border-line bg-section p-6">
+      <div className="rs-hover-soft space-y-6 rounded-rs-lg border border-line bg-section p-6">
         <p className="type-micro text-[9px] text-subtle">Progresso</p>
         <Progress label="Upload de arquivo" value={78} />
         <Progress label="Processamento de vídeo" value={60} tone="accent" />
@@ -180,7 +180,7 @@ export function Loaders() {
           <Spinner size="lg" label="Carregando" />
         </div>
       </div>
-      <div className="space-y-6 rounded-rs-lg border border-line bg-section p-6">
+      <div className="rs-hover-soft space-y-6 rounded-rs-lg border border-line bg-section p-6">
         <p className="type-micro text-[9px] text-subtle">Status da operação</p>
         <Stepper steps={["Recebido", "Em análise", "Processado", "Concluído"]} current={1} />
         <p className="type-micro pt-4 text-[9px] text-subtle">Skeleton</p>

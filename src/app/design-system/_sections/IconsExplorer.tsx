@@ -50,7 +50,7 @@ export function IconsExplorer() {
                   setTimeout(() => setCopied(null), 1200);
                 } catch {}
               }}
-              className="rs-focus group flex h-28 w-full flex-col items-center justify-center gap-3 transition-colors hover:bg-elevated"
+              className="rs-focus group flex h-28 w-full flex-col items-center justify-center gap-3 transition-[background-color,box-shadow] duration-(--rs-duration-normal) hover:bg-elevated hover:shadow-[inset_0_0_0_1px_rgb(0_230_209/0.35)]"
               aria-label={`Copiar ícone ${n}`}
             >
               <span className="text-fg-secondary transition-[color,transform] duration-(--rs-duration-normal) group-hover:-translate-y-0.5 group-hover:text-cyan">

@@ -77,7 +77,7 @@ export function MapTile({ className }: { className?: string }) {
         </span>
       ))}
       <div className="micro absolute left-3 top-3 text-[8px] text-fg/80">
-        Mapa operacional <span className="text-subtle">· Setores 01–08</span>
+        Mapa operacional <span className="text-subtle">· Setores 01 a 08</span>
       </div>
       <div className="glass micro absolute bottom-3 left-3 rounded-sm px-2 py-1.5 text-[8px] text-alert">
         ● Setor 04 · evento em análise
@@ -179,7 +179,7 @@ export function StatusTile({ className }: { className?: string }) {
 
 export function TickerTile({ className }: { className?: string }) {
   const text =
-    "CAM 0217 · movimento em área restrita — LPR 0042 · placa de interesse — DRN 02 · patrulha concluída — ACS 0118 · acesso negado — CAM 1187 · fluxo acima do padrão — ";
+    "CAM 0217 · movimento em área restrita | LPR 0042 · placa de interesse | DRN 02 · patrulha concluída | ACS 0118 · acesso negado | CAM 1187 · fluxo acima do padrão | ";
   return (
     <Tile className={cn("flex items-center overflow-hidden", className)}>
       <span className="micro absolute left-0 top-0 z-10 flex h-full items-center bg-accent px-3 text-[8px] font-semibold text-ink-950">

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import { cn, positioned } from "@/lib/utils";
 import { SecurityGrid, SecurityScan } from "@/design-system/components/graphics/Surfaces";
 import { Reveal } from "@/design-system/components/motion/Motion";
 
@@ -8,7 +8,7 @@ import { Reveal } from "@/design-system/components/motion/Motion";
  * Tratamento de imagem RealSeg (Brandbook 09):
  *   01 imagem original → 02 color grading → 03 overlay → 04 elementos gráficos
  *
- * `grade="brand"` aplica o grading em CSS (tons frios, alto contraste) — útil para
+ * `grade="brand"` aplica o grading em CSS (tons frios, alto contraste): útil para
  * fotos não tratadas. Fotos oficiais já tratadas devem usar `grade="none"`.
  */
 export function CinematicImage({
@@ -46,7 +46,8 @@ export function CinematicImage({
   const body = (
     <div
       className={cn(
-        "relative overflow-hidden bg-canvas",
+        positioned(className),
+        "overflow-hidden bg-canvas",
         rounded && "rounded-rs-lg border border-line-subtle",
         aspect,
         className,

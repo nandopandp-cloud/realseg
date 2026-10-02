@@ -10,10 +10,10 @@ import { Sparkline } from "@/design-system/components/visualization/Charts";
 type CardVariant = "base" | "elevated" | "interactive";
 
 /**
- * Card — superfície escura, borda sutil, raio consistente (20px).
+ * Card: superfície escura, borda sutil, raio consistente (20px).
  * - base: agrupamento simples (fundo deep)
  * - elevated: painel destacado (fundo navy + sombra)
- * - interactive: clicável — hover eleva, borda cyan, glow sutil
+ * - interactive: clicável: hover eleva, borda cyan, glow sutil
  */
 export function Card({
   variant = "base",
@@ -31,8 +31,8 @@ export function Card({
   const cls = cn(
     "relative block rounded-rs-lg border",
     { none: "", sm: "p-4", md: "p-6", lg: "p-8" }[padding],
-    variant === "base" && "border-line-subtle bg-section",
-    variant === "elevated" && "border-line bg-elevated shadow-rs-lg",
+    variant === "base" && "rs-hover-soft border-line-subtle bg-section",
+    variant === "elevated" && "rs-hover-soft border-line bg-elevated shadow-rs-lg",
     variant === "interactive" &&
       "group rs-focus border-line bg-elevated transition-[transform,border-color,box-shadow,background-color] duration-(--rs-duration-slow) ease-rs-standard hover:-translate-y-1 hover:border-cyan/45 hover:bg-panel hover:shadow-glow-sm",
     className,
@@ -49,7 +49,7 @@ export function Card({
 /* ============================ MediaCard ============================ */
 
 /**
- * MediaCard — imagem + overlay + conteúdo + indicador + micro movimento.
+ * MediaCard: imagem + overlay + conteúdo + indicador + micro movimento.
  * Usado para segmentos, soluções e conteúdos com fotografia da marca.
  */
 export function MediaCard({
@@ -134,7 +134,12 @@ export function MetricCard({
 }) {
   const good = delta ? (delta.positive ?? delta.direction === "up") : true;
   return (
-    <div className={cn("relative overflow-hidden rounded-rs-lg border border-line bg-elevated p-5", className)}>
+    <div
+      className={cn(
+        "rs-hover group relative overflow-hidden rounded-rs-lg border border-line bg-elevated p-5",
+        className,
+      )}
+    >
       <div className="flex items-start justify-between gap-3">
         <p className="type-label-md text-muted">{label}</p>
         {icon && <span className="text-cyan">{icon}</span>}
@@ -211,7 +216,7 @@ export function TechnologyCard({
 
 /* ============================== CaseCard ============================== */
 
-/** Case — storytelling: segmento, desafio, solução e resultado. */
+/** Case: storytelling: segmento, desafio, solução e resultado. */
 export function CaseCard({
   image,
   segment,

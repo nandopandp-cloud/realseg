@@ -1,5 +1,5 @@
 /**
- * RealSeg Design System — ponto único de importação.
+ * RealSeg Design System: ponto único de importação.
  *   import { Button, Card, SecurityRadar } from "@/design-system";
  */
 
@@ -101,6 +101,7 @@ export { SecurityMap, defaultMarkers, type MapMarker } from "./components/graphi
 
 // Media & motion
 export { CinematicImage } from "./components/media/CinematicImage";
+export { Lightbox, type LightboxImage } from "./components/media/Lightbox";
 export { Reveal, RevealGroup, Parallax, CountUp } from "./components/motion/Motion";
 
 // Hooks

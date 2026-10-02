@@ -42,7 +42,7 @@ const files: Record<Variant, Partial<Record<Tone, { src: string; w: number; h: n
 };
 files.reduced = files.full;
 
-/** Tamanhos mínimos (altura em px) — abaixo disso, use o símbolo. */
+/** Tamanhos mínimos (altura em px): abaixo disso, use o símbolo. */
 export const logoMinHeight = { full: 24, reduced: 20, symbol: 16, wordmark: 12 } as const;
 
 export function Logo({

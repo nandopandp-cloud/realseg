@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 export type NavItem = { label: string; href: string };
 
 /**
- * Header — transparente no topo; ao rolar: blur, fundo escuro translúcido,
+ * Header: transparente no topo; ao rolar: blur, fundo escuro translúcido,
  * borda inferior sutil e altura reduzida. Item ativo em cyan.
  */
 export function Header({
@@ -60,7 +60,7 @@ export function Header({
           scrolled ? "h-16" : "h-20",
         )}
       >
-        <Link href="/" aria-label="RealSeg — início" className="rs-focus shrink-0 rounded-rs-xs">
+        <Link href="/" aria-label="RealSeg, ir para o início" className="rs-focus shrink-0 rounded-rs-xs">
           <Logo height={32} />
         </Link>
 

@@ -21,7 +21,7 @@ export function SecuritySection() {
           Uma mesma <span className="rs-text-gradient">plataforma.</span>
         </>
       }
-      description="Componentes proprietários da RealSeg. Todos compartilham StatusChip, ponto de status, micro labels e cores semânticas — por isso parecem parte de um único sistema operacional de segurança."
+      description="Componentes proprietários da RealSeg. Todos compartilham StatusChip, ponto de status, micro labels e cores semânticas. Por isso parecem parte de um único sistema operacional de segurança."
     >
       <SubSection title="Indicadores de status">
         <Specimen padding="lg">
@@ -55,7 +55,7 @@ export function SecuritySection() {
       <ComponentDoc
         name="EventCard"
         importPath='import { EventCard } from "@/design-system"'
-        purpose="Apresentar um evento detectado com evidência, contexto (origem, local, hora), severidade e a próxima ação — tudo legível em menos de 3 segundos."
+        purpose="Apresentar um evento detectado com evidência, contexto (origem, local, hora), severidade e a próxima ação, tudo legível em menos de 3 segundos."
         anatomy={[
           "Barra de severidade",
           "Evidência + target",
@@ -117,7 +117,7 @@ export function SecuritySection() {
         ]}
       />
       <Note>
-        Termos HUD em inglês (SYSTEM ONLINE, AI ANALYSIS, EVENT DETECTED) são elementos de marca — usados somente em
+        Termos HUD em inglês (SYSTEM ONLINE, AI ANALYSIS, EVENT DETECTED) são elementos de marca, usados somente em
         micro labels. Conteúdo, títulos e ações são sempre em português.
       </Note>
     </DocSection>

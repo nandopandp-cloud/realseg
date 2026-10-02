@@ -2,8 +2,8 @@ import { useId } from "react";
 import { cn } from "@/lib/utils";
 
 export type MapMarker = {
-  x: number; // 0–100
-  y: number; // 0–100
+  x: number; // 0 a 100
+  y: number; // 0 a 100
   kind?: "poi" | "event" | "patrol" | "hub";
   label?: string;
 };
@@ -40,7 +40,7 @@ export const defaultMarkers: MapMarker[] = [
 ];
 
 /**
- * SecurityMap — visualização conceitual de território: grid, nós, conexões, pulsos e marcadores.
+ * SecurityMap: visualização conceitual de território: grid, nós, conexões, pulsos e marcadores.
  * Não representa local real. Para mapas geográficos, use este componente como overlay.
  */
 export function SecurityMap({

@@ -86,7 +86,7 @@ export function Durations() {
   const [run, setRun] = useState(0);
   const reduced = useReducedMotion();
   return (
-    <div className="space-y-3 rounded-rs-lg border border-line bg-section p-5">
+    <div className="rs-hover-soft space-y-3 rounded-rs-lg border border-line bg-section p-5">
       {Object.entries(motion.duration).map(([k, d]) => (
         <div key={k} className="grid grid-cols-[110px_70px_minmax(0,1fr)] items-center gap-4">
           <span className="font-data text-[12px] text-cyan">{k}</span>

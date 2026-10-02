@@ -205,7 +205,7 @@ export function Textarea({
   );
 }
 
-/** Select nativo estilizado — melhor acessibilidade e UX mobile. Para busca, use Combobox. */
+/** Select nativo estilizado: melhor acessibilidade e UX mobile. Para busca, use Combobox. */
 export function Select({
   label,
   hint,

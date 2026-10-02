@@ -228,7 +228,7 @@ export function OpsCenter() {
         {/* Mapa + radar + eventos */}
         <div className="grid gap-4 xl:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
           <Stack gap={4}>
-            <SecurityMap subtitle="Setores 01–08 · ilustrativo" />
+            <SecurityMap subtitle="Setores 01 a 08 · ilustrativo" />
             <ChartFrame
               title="Eventos por hora"
               subtitle="Hoje vs. média da semana"

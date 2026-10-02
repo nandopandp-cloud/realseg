@@ -15,7 +15,7 @@ export function Icons() {
           Linha geométrica. <span className="rs-text-gradient">Óptica precisa.</span>
         </>
       }
-      description="Base Lucide, grid 24×24, stroke 1.5px (1.75px a partir de 32px), cantos suaves. Times usam o nome semântico — nunca o nome da biblioteca."
+      description="Base Lucide, grid 24×24, stroke 1.5px (1.75px a partir de 32px), cantos suaves. Times usam o nome semântico, nunca o nome da biblioteca."
     >
       <SubSection title="Família de ícones" description="Clique para copiar o uso.">
         <IconsExplorer />

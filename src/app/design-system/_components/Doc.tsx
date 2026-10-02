@@ -94,14 +94,16 @@ export function Specimen({
   bodyClassName?: string;
 }) {
   return (
-    <div className={cn("overflow-hidden rounded-rs-lg border border-line bg-section", className)}>
+    <div
+      className={cn("rs-hover-soft group/spec overflow-hidden rounded-rs-lg border border-line bg-section", className)}
+    >
       {label && (
         <div className="flex items-center justify-between border-b border-line-subtle px-4 py-2.5">
           <span className="type-micro text-[9px] text-subtle">{label}</span>
           <span aria-hidden className="flex gap-1">
             <span className="size-1 rounded-full bg-line-strong" />
             <span className="size-1 rounded-full bg-line-strong" />
-            <span className="size-1 rounded-full bg-cyan/60" />
+            <span className="size-1 rounded-full bg-cyan/60 transition-[background-color,box-shadow] duration-(--rs-duration-normal) group-hover/spec:bg-cyan group-hover/spec:shadow-[0_0_8px_rgb(0_230_209)]" />
           </span>
         </div>
       )}
@@ -134,7 +136,7 @@ export function PropsTable({ rows }: { rows: Array<[prop: string, type: string, 
         </thead>
         <tbody>
           {rows.map(([p, t, d, desc]) => (
-            <tr key={p} className="border-b border-line-subtle last:border-0">
+            <tr key={p} className="rs-hover-row border-b border-line-subtle last:border-0">
               <td className="px-4 py-3 font-data text-[12px] text-cyan">{p}</td>
               <td className="px-4 py-3 font-data text-[11px] text-fg-secondary">{t}</td>
               <td className="px-4 py-3 font-data text-[11px] text-muted">{d}</td>
@@ -152,26 +154,32 @@ export function PropsTable({ rows }: { rows: Array<[prop: string, type: string, 
 export function DoDont({ dos, donts }: { dos: string[]; donts: string[] }) {
   return (
     <div className="grid gap-4 md:grid-cols-2">
-      <div className="rounded-rs-md border border-success/25 bg-success/[0.04] p-5">
+      <div className="rounded-rs-md border border-success/25 bg-success/[0.04] p-5 transition-[border-color,background-color] duration-(--rs-duration-normal) hover:border-success/50 hover:bg-success/[0.07]">
         <p className="type-micro flex items-center gap-2 text-success">
           <Check aria-hidden className="size-3.5" /> Faça
         </p>
         <ul className="mt-4 space-y-2.5">
           {dos.map((d) => (
-            <li key={d} className="type-body-sm flex gap-2.5 text-fg-secondary">
+            <li
+              key={d}
+              className="type-body-sm flex gap-2.5 text-fg-secondary transition-[color,transform] duration-(--rs-duration-normal) ease-rs-standard hover:translate-x-1 hover:text-fg"
+            >
               <span aria-hidden className="mt-2 size-1 shrink-0 rounded-full bg-success" />
               {d}
             </li>
           ))}
         </ul>
       </div>
-      <div className="rounded-rs-md border border-critical/25 bg-critical/[0.04] p-5">
+      <div className="rounded-rs-md border border-critical/25 bg-critical/[0.04] p-5 transition-[border-color,background-color] duration-(--rs-duration-normal) hover:border-critical/50 hover:bg-critical/[0.07]">
         <p className="type-micro flex items-center gap-2 text-critical">
           <X aria-hidden className="size-3.5" /> Não faça
         </p>
         <ul className="mt-4 space-y-2.5">
           {donts.map((d) => (
-            <li key={d} className="type-body-sm flex gap-2.5 text-fg-secondary">
+            <li
+              key={d}
+              className="type-body-sm flex gap-2.5 text-fg-secondary transition-[color,transform] duration-(--rs-duration-normal) ease-rs-standard hover:translate-x-1 hover:text-fg"
+            >
               <span aria-hidden className="mt-2 size-1 shrink-0 rounded-full bg-critical" />
               {d}
             </li>
@@ -256,7 +264,7 @@ function TagList({ title, items, numbered }: { title: string; items: string[]; n
         {items.map((i, k) => (
           <span
             key={i}
-            className="inline-flex items-center gap-1.5 rounded-rs-xs border border-line px-2 py-1 text-[11px] text-fg-secondary"
+            className="inline-flex items-center gap-1.5 rounded-rs-xs border border-line px-2 py-1 text-[11px] text-fg-secondary transition-[border-color,color] duration-(--rs-duration-fast) hover:border-cyan/50 hover:text-fg"
           >
             {numbered && <span className="font-data text-[10px] text-cyan">{k + 1}</span>}
             {i}

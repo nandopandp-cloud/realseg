@@ -6,7 +6,7 @@ export function Logo({ className, withTagline = true }: { className?: string; wi
   return (
     <Link
       href="#top"
-      aria-label="RealSeg — Security Intelligence, voltar ao início"
+      aria-label="RealSeg Security Intelligence, voltar ao início"
       className={cn("group flex shrink-0 items-center gap-3", className)}
     >
       <Image

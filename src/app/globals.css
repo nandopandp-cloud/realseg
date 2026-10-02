@@ -137,10 +137,13 @@ html.lenis body {
   overscroll-behavior: contain;
 }
 
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-  border-radius: 4px;
+/* Em @layer base para que utilitários (outline-none, rs-focus) possam sobrescrever. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 }
 
 /* ---------- Layout ---------- */
@@ -266,7 +269,7 @@ html.lenis body {
   will-change: transform;
 }
 
-/* Estado inicial antes da hidratação — evita flash de conteúdo. */
+/* Estado inicial antes da hidratação: evita flash de conteúdo. */
 .js [data-reveal]:not([data-revealed]) {
   opacity: 0;
 }

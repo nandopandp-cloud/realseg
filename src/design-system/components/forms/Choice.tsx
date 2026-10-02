@@ -48,7 +48,9 @@ export function Checkbox({
         />
       </span>
       <span className="min-w-0">
-        <span className="type-label-lg block font-medium text-fg">{label}</span>
+        <span className="type-label-lg block font-medium text-fg transition-colors duration-(--rs-duration-fast) group-hover:text-cyan">
+          {label}
+        </span>
         {description && <span className="type-body-sm block text-muted">{description}</span>}
       </span>
     </label>
@@ -102,7 +104,9 @@ export function RadioGroup({
               <span className="pointer-events-none relative size-2.5 scale-0 rounded-full bg-cyan transition-transform duration-(--rs-duration-normal) ease-rs-standard peer-checked:scale-100" />
             </span>
             <span>
-              <span className="type-label-lg block font-medium text-fg">{o.label}</span>
+              <span className="type-label-lg block font-medium text-fg transition-colors duration-(--rs-duration-fast) group-hover:text-cyan">
+                {o.label}
+              </span>
               {o.description && <span className="type-body-sm block text-muted">{o.description}</span>}
             </span>
           </label>

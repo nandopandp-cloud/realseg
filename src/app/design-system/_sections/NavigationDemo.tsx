@@ -31,7 +31,7 @@ export function HeaderStates() {
     <div className="grid gap-4">
       <div className="relative overflow-hidden rounded-rs-lg border border-line">
         <div aria-hidden className="absolute inset-0 bg-[url('/images/hero-city.jpg')] bg-cover bg-center opacity-50" />
-        <p className="type-micro absolute bottom-3 left-4 text-[9px] text-muted">Topo — transparente</p>
+        <p className="type-micro absolute bottom-3 left-4 text-[9px] text-muted">Topo: transparente</p>
         <div className="relative pb-10">
           <Header items={items} active="#n-t" position="static" scrolled={false} />
         </div>
@@ -42,7 +42,7 @@ export function HeaderStates() {
           className="absolute inset-0 bg-[url('/images/hero-city.jpg')] bg-cover bg-[center_70%] opacity-50"
         />
         <p className="type-micro absolute bottom-3 left-4 text-[9px] text-muted">
-          Após scroll — blur, fundo translúcido, borda, altura 64px
+          Após scroll: blur, fundo translúcido, borda, altura 64px
         </p>
         <div className="relative pb-10">
           <Header items={items} active="#n-t" position="static" scrolled />
@@ -89,7 +89,7 @@ export function NavPieces() {
           ]}
         />
       </div>
-      <div className="space-y-6 rounded-rs-lg border border-line bg-section p-6">
+      <div className="rs-hover-soft space-y-6 rounded-rs-lg border border-line bg-section p-6">
         <div>
           <p className="type-micro mb-3 text-[9px] text-subtle">Tabs · underline</p>
           <Tabs

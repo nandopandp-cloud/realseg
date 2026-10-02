@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Tooltip leve: fundo escuro, texto claro, acento cyan.
- * Abre no hover e no foco; fecha com Esc. Conteúdo curto — nunca informação essencial.
+ * Abre no hover e no foco; fecha com Esc. Conteúdo curto: nunca informação essencial.
  */
 export function Tooltip({
   content,

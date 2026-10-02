@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 export type FieldState = { id: string; describedBy?: string; invalid: boolean; valid: boolean; disabled?: boolean };
 
 /**
- * Field — rótulo, dica, erro e sucesso conectados ao controle por ARIA.
+ * Field: rótulo, dica, erro e sucesso conectados ao controle por ARIA.
  * Todo controle de formulário do sistema usa este wrapper.
  */
 export function Field({

@@ -6,7 +6,7 @@ import { StatusDot, type StatusTone } from "@/design-system/components/primitive
 import { SecurityTarget } from "@/design-system/components/graphics/Hud";
 
 /* ------------------------------------------------------------------ */
-/* StatusChip — base comum de todos os indicadores operacionais        */
+/* StatusChip: base comum de todos os indicadores operacionais        */
 /* ------------------------------------------------------------------ */
 
 const chip: Record<StatusTone, string> = {
@@ -74,7 +74,7 @@ export function MonitoringIndicator({ active = true, sources }: { active?: boole
   );
 }
 
-/** ● ALERT — contador de alertas com severidade. */
+/** ● ALERT: contador de alertas com severidade. */
 export function AlertIndicator({ count, severity = "critical" }: { count: number; severity?: "warning" | "critical" }) {
   return (
     <StatusChip
@@ -87,7 +87,7 @@ export function AlertIndicator({ count, severity = "critical" }: { count: number
   );
 }
 
-/** AI ANALYSIS 98.4% — confiança da inferência. */
+/** AI ANALYSIS 98.4%: confiança da inferência. */
 export function AIIndicator({
   value,
   label = "AI analysis",
@@ -101,7 +101,9 @@ export function AIIndicator({
 }) {
   const bars = 22;
   return (
-    <div className={cn("relative overflow-hidden rounded-rs-md border border-line bg-elevated p-4", className)}>
+    <div
+      className={cn("rs-hover relative overflow-hidden rounded-rs-md border border-line bg-elevated p-4", className)}
+    >
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-2.5">
           <span className="grid size-8 place-items-center rounded-rs-sm border border-cyan/40 bg-cyan/10 text-cyan">
@@ -131,7 +133,7 @@ export function AIIndicator({
   );
 }
 
-/** Câmera · status · local — card compacto de status de dispositivo. */
+/** Câmera · status · local: card compacto de status de dispositivo. */
 export function CameraStatus({
   name,
   status = "online",
@@ -151,7 +153,12 @@ export function CameraStatus({
     offline: { tone: "neutral" as const, text: "Offline" },
   }[status];
   return (
-    <div className={cn("flex items-center gap-3 rounded-rs-md border border-line bg-elevated p-3 pr-4", className)}>
+    <div
+      className={cn(
+        "rs-hover group flex items-center gap-3 rounded-rs-md border border-line bg-elevated p-3 pr-4",
+        className,
+      )}
+    >
       <div className="relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-rs-sm border border-line bg-canvas">
         {thumbnail ? (
           <Image
@@ -191,7 +198,7 @@ const sev: Record<Severity, { tone: StatusTone; label: string; bar: string }> = 
   critical: { tone: "critical", label: "Crítica", bar: "bg-critical" },
 };
 
-/** EVENT DETECTED — evento de segurança com evidência, contexto e ação. */
+/** EVENT DETECTED: evento de segurança com evidência, contexto e ação. */
 export function EventCard({
   title,
   severity = "high",
@@ -215,7 +222,9 @@ export function EventCard({
 }) {
   const s = sev[severity];
   return (
-    <article className={cn("relative overflow-hidden rounded-rs-md border border-line bg-elevated", className)}>
+    <article
+      className={cn("rs-hover relative overflow-hidden rounded-rs-md border border-line bg-elevated", className)}
+    >
       <span aria-hidden className={cn("absolute inset-y-0 left-0 w-[3px]", s.bar)} />
       <div className="flex gap-4 p-4 pl-5">
         {image && (
@@ -260,7 +269,7 @@ export function EventCard({
   );
 }
 
-/** RESPONSE IN PROGRESS — andamento da resposta a um evento. */
+/** RESPONSE IN PROGRESS: andamento da resposta a um evento. */
 export function ResponseStatus({
   stage = 2,
   team,
@@ -276,7 +285,7 @@ export function ResponseStatus({
   const steps = ["Acionado", "Em deslocamento", "No local", "Concluído"];
   const done = stage === 3;
   return (
-    <div className={cn("rounded-rs-md border border-line bg-elevated p-4", className)}>
+    <div className={cn("rs-hover rounded-rs-md border border-line bg-elevated p-4", className)}>
       <div className="flex items-center justify-between gap-3">
         <StatusChip
           tone={done ? "success" : "info"}

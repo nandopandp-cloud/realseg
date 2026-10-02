@@ -31,7 +31,7 @@ export function Spacing() {
           {spacing.map((s) => (
             <div
               key={s.token}
-              className="grid grid-cols-[100px_60px_70px_minmax(0,1fr)] items-center gap-4 px-5 py-2.5"
+              className="rs-hover-row grid grid-cols-[100px_60px_70px_minmax(0,1fr)] items-center gap-4 px-5 py-2.5"
             >
               <span className="font-data text-[12px] text-cyan">{s.token}</span>
               <span className="font-data text-[12px] text-fg">{s.px}px</span>
@@ -62,8 +62,7 @@ export function Spacing() {
           <ul className="mt-6 space-y-1.5">
             {Object.entries(radius).map(([k, r]) => (
               <li key={k} className="type-body-sm text-muted">
-                <span className="font-data text-[11px] text-fg">rounded-rs-{k === "full" ? "…/full" : k}</span> —{" "}
-                {r.use}
+                <span className="font-data text-[11px] text-fg">rounded-rs-{k === "full" ? "…/full" : k}</span>: {r.use}
               </li>
             ))}
           </ul>
@@ -72,7 +71,11 @@ export function Spacing() {
         <SubSection title="Borders" description="Sofisticadas e leves. Nunca bordas pesadas.">
           <div className="grid grid-cols-2 gap-4">
             {Object.entries(borders.levels).map(([k, b]) => (
-              <div key={k} className="rounded-rs-md bg-elevated p-4" style={{ border: `1px solid ${b.value}` }}>
+              <div
+                key={k}
+                className="rs-hover rounded-rs-md bg-elevated p-4"
+                style={{ border: `1px solid ${b.value}` }}
+              >
                 <p className="font-data text-[12px] text-cyan">border-{k}</p>
                 <p className="type-body-sm mt-1 text-muted">{b.use}</p>
               </div>
@@ -83,7 +86,7 @@ export function Spacing() {
 
       <SubSection
         title="Elevação e glow"
-        description="Glow é sinal de inteligência — no máximo um elemento com glow-lg por tela."
+        description="Glow é sinal de inteligência. No máximo um elemento com glow-lg por tela."
       >
         <div className="grid grid-cols-2 gap-6 md:grid-cols-4 xl:grid-cols-7">
           {[
@@ -129,7 +132,7 @@ export function Spacing() {
           </div>
           <ol className="mt-2 grid gap-2 sm:grid-cols-5">
             {depthLayers.map((l) => (
-              <li key={l.layer} className="rounded-rs-sm border border-line-subtle p-3">
+              <li key={l.layer} className="rs-hover rounded-rs-sm border border-line-subtle p-3">
                 <p className="font-data text-[10px] text-cyan">Layer {l.layer}</p>
                 <p className="type-label-md text-fg">{l.name}</p>
                 <p className="type-label-sm mt-1 font-normal text-muted">{l.desc}</p>
@@ -161,7 +164,7 @@ export function Spacing() {
       <SubSection title="Breakpoints" description="Mobile-first.">
         <div className="grid gap-3 sm:grid-cols-4">
           {Object.entries(breakpoints).map(([k, b]) => (
-            <div key={k} className="rounded-rs-md border border-line bg-section p-4">
+            <div key={k} className="rs-hover rounded-rs-md border border-line bg-section p-4">
               <p className="type-micro text-[9px] text-cyan">{k}</p>
               <p className="mt-2 font-data text-xl text-fg">≥ {b.min}px</p>
               <p className="font-data text-[11px] text-muted">{b.tw}</p>

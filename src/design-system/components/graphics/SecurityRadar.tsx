@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export type RadarNode = {
   /** Ângulo em graus (0 = norte, sentido horário). */
   angle: number;
-  /** Distância do centro, 0–1. */
+  /** Distância do centro, 0 a 1. */
   distance: number;
   tone?: "accent" | "warning" | "critical";
   kind?: "camera" | "event" | "alert";
@@ -27,7 +27,7 @@ export const defaultRadarNodes: RadarNode[] = [
 ];
 
 /**
- * SecurityRadar — observação, análise e cobertura.
+ * SecurityRadar: observação, análise e cobertura.
  * Cada nó acende no exato momento em que a varredura passa sobre ele.
  * Uso: no máximo um por tela. Nunca como textura decorativa.
  */
@@ -47,7 +47,7 @@ export function SecurityRadar({
   speed?: number;
   nodes?: RadarNode[];
   interactive?: boolean;
-  /** 0–1.5: opacidade da varredura e glow. */
+  /** 0 a 1.5: opacidade da varredura e glow. */
   intensity?: number;
   status?: string | null;
   showLabels?: boolean;
@@ -68,7 +68,7 @@ export function SecurityRadar({
       className={cn("relative aspect-square", !size && "w-full", className)}
       style={size ? { width: size } : undefined}
       role="img"
-      aria-label={`Radar de monitoramento com ${nodes.length} pontos${status ? ` — ${status}` : ""}`}
+      aria-label={`Radar de monitoramento com ${nodes.length} pontos${status ? `, ${status}` : ""}`}
     >
       {/* Varredura */}
       <div className="absolute inset-[5%] overflow-hidden rounded-full">

@@ -14,7 +14,7 @@ const styles: Record<AlertTone, { box: string; icon: typeof Info; iconCls: strin
 };
 
 /**
- * Alert — mensagem de sistema com ícone, título, mensagem e ação.
+ * Alert: mensagem de sistema com ícone, título, mensagem e ação.
  * `critical` usa role="alert" (anunciado imediatamente). Use com parcimônia.
  */
 export function Alert({

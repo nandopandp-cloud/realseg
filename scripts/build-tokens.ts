@@ -31,7 +31,7 @@ const ref = (value: string) => {
 };
 const out = (s = "") => lines.push(s);
 
-out("/* AUTO-GERADO por scripts/build-tokens.ts — NÃO EDITAR. Edite src/design-system/tokens/*.ts */");
+out("/* AUTO-GERADO por scripts/build-tokens.ts. NÃO EDITAR. Edite src/design-system/tokens/*.ts */");
 out();
 out(":root {");
 out("  /* Primitivas */");

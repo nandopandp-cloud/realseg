@@ -53,7 +53,7 @@ export function Brand() {
               "Reconhecida como a principal empresa de inteligência em segurança na América Latina, pela excelência tecnológica e impacto positivo na sociedade.",
             ],
           ].map(([k, t, d]) => (
-            <div key={k} className="rounded-rs-lg border border-line-subtle bg-section p-6">
+            <div key={k} className="rs-hover rounded-rs-lg border border-line-subtle bg-section p-6">
               <p className="type-micro text-[9px] text-cyan">{k}</p>
               <p className="type-heading-md mt-4 uppercase text-fg">{t}</p>
               <span aria-hidden className="mt-4 block h-[2px] w-8 bg-cyan" />
@@ -64,7 +64,7 @@ export function Brand() {
 
         <ol className="mt-4 grid gap-px overflow-hidden rounded-rs-lg border border-line bg-line-subtle sm:grid-cols-5">
           {pillars.map(([k, d], i) => (
-            <li key={k} className="bg-section p-5">
+            <li key={k} className="bg-section p-5 transition-colors duration-(--rs-duration-normal) hover:bg-elevated">
               <span className="font-data text-[10px] text-subtle">P{i + 1}</span>
               <p className="type-label-lg mt-3 uppercase tracking-wide text-fg">{k}</p>
               <p className="type-body-sm mt-1 text-muted">{d}</p>
@@ -73,7 +73,7 @@ export function Brand() {
         </ol>
 
         <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <div className="rounded-rs-lg border border-line-subtle bg-section p-6">
+          <div className="rs-hover rounded-rs-lg border border-line-subtle bg-section p-6">
             <p className="type-micro text-[9px] text-subtle">Personalidade · somos</p>
             <ul className="mt-4 grid grid-cols-2 gap-2.5">
               {is.map((t) => (
@@ -83,7 +83,7 @@ export function Brand() {
               ))}
             </ul>
           </div>
-          <div className="rounded-rs-lg border border-line-subtle bg-section p-6">
+          <div className="rs-hover rounded-rs-lg border border-line-subtle bg-section p-6">
             <p className="type-micro text-[9px] text-subtle">Personalidade · não somos</p>
             <ul className="mt-4 grid grid-cols-2 gap-2.5">
               {isNot.map((t) => (
@@ -107,7 +107,7 @@ export function Brand() {
             {
               name: "Logo reduzido",
               node: <Logo variant="reduced" height={40} />,
-              note: "Sem assinatura — header, footer",
+              note: "Sem assinatura: header, footer",
             },
             { name: "Símbolo", node: <Logo variant="symbol" height={56} />, note: "Avatar, favicon, selos" },
             {
@@ -150,7 +150,7 @@ export function Brand() {
               </p>
               <div className="grid w-full grid-cols-2 gap-3 sm:grid-cols-4">
                 {Object.entries(logoMinHeight).map(([k, v]) => (
-                  <div key={k} className="rounded-rs-sm border border-line-subtle p-3 text-center">
+                  <div key={k} className="rs-hover rounded-rs-sm border border-line-subtle p-3 text-center">
                     <p className="type-micro text-[9px] text-subtle">{k}</p>
                     <p className="mt-1 font-data text-sm text-fg">≥ {v}px</p>
                   </div>

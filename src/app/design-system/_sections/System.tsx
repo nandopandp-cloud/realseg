@@ -130,7 +130,7 @@ export function Content() {
         {voice.map((v) => (
           <div
             key={v.k}
-            className="grid gap-3 rounded-rs-md border border-line-subtle bg-section p-4 md:grid-cols-[140px_1fr_1fr] md:items-center"
+            className="rs-hover-soft grid gap-3 rounded-rs-md border border-line-subtle bg-section p-4 md:grid-cols-[140px_1fr_1fr] md:items-center"
           >
             <p className="type-micro text-[9px] text-subtle">{v.k}</p>
             <p className="type-body-sm flex items-start gap-2 text-fg">
@@ -151,7 +151,7 @@ export function Content() {
           ["Verbo + objeto", "Ações começam com verbo no infinitivo: Agendar, Exportar, Acionar."],
           ["Português primeiro", "Termos HUD em inglês só em micro labels de marca (LIVE, AI ACTIVE)."],
         ].map(([k, d]) => (
-          <div key={k} className="rounded-rs-md border border-line bg-elevated p-5">
+          <div key={k} className="rs-hover rounded-rs-md border border-line bg-elevated p-5">
             <p className="type-heading-sm text-fg">{k}</p>
             <p className="type-body-sm mt-2 text-muted">{d}</p>
           </div>
@@ -206,11 +206,11 @@ export function AccessibilitySection() {
           Segurança é para <span className="rs-text-gradient">todos.</span>
         </>
       }
-      description="WCAG 2.2 AA como piso. Acessibilidade está embutida nos componentes — não é uma etapa posterior."
+      description="WCAG 2.2 AA como piso. Acessibilidade está embutida nos componentes, não é uma etapa posterior."
     >
       <Grid cols={3} gap={4}>
         {items.map(({ icon: I, k, d }) => (
-          <div key={k} className="rounded-rs-lg border border-line bg-section p-6">
+          <div key={k} className="rs-hover rounded-rs-lg border border-line bg-section p-6">
             <I aria-hidden className="size-5 text-cyan" strokeWidth={1.6} />
             <p className="type-heading-sm mt-4 text-fg">{k}</p>
             <p className="type-body-sm mt-2 text-muted">{d}</p>
@@ -231,7 +231,7 @@ export function AccessibilitySection() {
           ].map((c) => (
             <li
               key={c}
-              className="type-body-sm flex items-center gap-3 rounded-rs-sm border border-line-subtle px-4 py-3 text-fg-secondary"
+              className="rs-hover-soft type-body-sm flex items-center gap-3 rounded-rs-sm border border-line-subtle px-4 py-3 text-fg-secondary"
             >
               <span className="grid size-5 place-items-center rounded-rs-xs border border-cyan/50 text-cyan">
                 <Check aria-hidden className="size-3" strokeWidth={3} />

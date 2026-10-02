@@ -4,8 +4,8 @@ import { Durations, EasingCurves, RevealLab } from "./MotionDemo";
 
 const principles = [
   ["Precision", "Movimentos curtos e exatos. Nada quica, nada sobra."],
-  ["Flow", "Um elemento conduz ao próximo; stagger de 60–90ms."],
-  ["Depth", "Camadas se movem em velocidades diferentes (parallax 0.1×–0.3×)."],
+  ["Flow", "Um elemento conduz ao próximo; stagger de 60 a 90ms."],
+  ["Depth", "Camadas se movem em velocidades diferentes (parallax 0.1× a 0.3×)."],
   ["Response", "Todo input recebe feedback em até 150ms."],
   ["Reveal", "Conteúdo surge como informação sendo descoberta."],
 ];
@@ -33,11 +33,11 @@ export function Motion() {
           Movimento é <span className="rs-text-gradient">operação.</span>
         </>
       }
-      description="Rápido, preciso, suave. Nunca animação apenas porque fica bonito. Somente transform, opacity, filter e clip-path — nenhum layout shift."
+      description="Rápido, preciso, suave. Nunca animação apenas porque fica bonito. Somente transform, opacity, filter e clip-path, sem layout shift."
     >
       <ol className="grid gap-px overflow-hidden rounded-rs-lg border border-line bg-line-subtle sm:grid-cols-5">
         {principles.map(([k, d], i) => (
-          <li key={k} className="bg-section p-5">
+          <li key={k} className="bg-section p-5 transition-colors duration-(--rs-duration-normal) hover:bg-elevated">
             <span className="font-data text-[10px] text-subtle">0{i + 1}</span>
             <p className="mt-3 text-xl font-extrabold uppercase tracking-tight text-fg">{k}</p>
             <p className="type-body-sm mt-2 text-muted">{d}</p>
@@ -100,12 +100,12 @@ export function Motion() {
       <Note>
         <strong className="text-fg">prefers-reduced-motion:</strong> parallax, partículas, scan, radar e floating são
         removidos; reveals mostram o estado final imediatamente. Spinner, progress e skeleton continuam (mais lentos),
-        pois são feedback funcional. Tudo isso já está embutido nos componentes — não é necessário tratar caso a caso.
+        pois são feedback funcional. Tudo isso já está embutido nos componentes, sem necessidade de tratar caso a caso.
       </Note>
       <DoDont
         dos={[
           "Animar somente transform, opacity, filter e clip-path",
-          "Stagger para grupos (60–90ms)",
+          "Stagger para grupos (60 a 90ms)",
           "Animação contínua só onde há estado vivo",
         ]}
         donts={[

@@ -97,7 +97,7 @@ export function Radar() {
           ))}
         </g>
 
-        {/* 2. IA — anel de processamento */}
+        {/* 2. IA: anel de processamento */}
         <g data-layer="ai">
           <circle cx={C} cy={C} r={92} fill="url(#radar-core)" />
           <circle

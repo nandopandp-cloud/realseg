@@ -8,7 +8,7 @@ export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "link
 export type ButtonSize = "sm" | "md" | "lg";
 
 /**
- * Brandbook 05 — Botões e interações.
+ * Brandbook 05: Botões e interações.
  * Altura 56/46/40 · Inter 700 uppercase · raio 12px · transição 200ms.
  * Microinterações: elevação -2px, glow suave, ícone desliza no eixo X.
  */

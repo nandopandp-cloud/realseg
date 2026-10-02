@@ -56,7 +56,7 @@ export function Typography() {
               </li>
             ))}
           </ul>
-          <p className="mt-4 font-data text-[13px] text-fg-secondary">JetBrains Mono — dados · 1.348 · XYZ1A34</p>
+          <p className="mt-4 font-data text-[13px] text-fg-secondary">JetBrains Mono para dados · 1.348 · XYZ1A34</p>
         </Specimen>
       </div>
 
@@ -66,7 +66,10 @@ export function Typography() {
       >
         <div className="divide-y divide-line-subtle rounded-rs-lg border border-line bg-section">
           {Object.entries(typeScale).map(([name, t]) => (
-            <div key={name} className="grid gap-4 p-5 md:grid-cols-[180px_minmax(0,1fr)] md:items-center md:gap-8">
+            <div
+              key={name}
+              className="rs-hover-row grid gap-4 p-5 md:grid-cols-[180px_minmax(0,1fr)] md:items-center md:gap-8"
+            >
               <div>
                 <p className="font-data text-[12px] text-cyan">type-{name}</p>
                 <p className="mt-1 font-data text-[10px] leading-relaxed text-subtle">

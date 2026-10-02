@@ -151,7 +151,7 @@ export function ButtonMatrix() {
 export function ButtonExtras() {
   return (
     <div className="grid gap-4 md:grid-cols-3">
-      <div className="space-y-3 rounded-rs-lg border border-line bg-section p-5">
+      <div className="rs-hover-soft space-y-3 rounded-rs-lg border border-line bg-section p-5">
         <p className="type-micro text-[9px] text-subtle">Tamanhos · 56 / 46 / 40</p>
         <div className="flex flex-wrap items-center gap-3">
           <Button size="lg">Falar com especialista</Button>
@@ -159,7 +159,7 @@ export function ButtonExtras() {
           <Button size="sm">Falar</Button>
         </div>
       </div>
-      <div className="space-y-3 rounded-rs-lg border border-line bg-section p-5">
+      <div className="rs-hover-soft space-y-3 rounded-rs-lg border border-line bg-section p-5">
         <p className="type-micro text-[9px] text-subtle">Com ícone</p>
         <div className="flex flex-wrap items-center gap-3">
           <Button variant="secondary" icon={<Calendar className="size-4" />} arrow={false}>
@@ -173,7 +173,7 @@ export function ButtonExtras() {
           </Button>
         </div>
       </div>
-      <div className="space-y-3 rounded-rs-lg border border-line bg-section p-5">
+      <div className="rs-hover-soft space-y-3 rounded-rs-lg border border-line bg-section p-5">
         <p className="type-micro text-[9px] text-subtle">Somente ícone (label obrigatório)</p>
         <div className="flex flex-wrap items-center gap-3">
           <IconButton label="Adicionar câmera" variant="primary">

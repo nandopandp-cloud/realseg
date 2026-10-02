@@ -23,7 +23,7 @@ export const technologies: Technology[] = [
   },
   {
     id: "lpr",
-    title: "Leitura de Placas — LPR / OCR",
+    title: "Leitura de Placas (LPR / OCR)",
     description: "Leitura automática de placas integrada a listas de interesse e bases de dados.",
     icon: ScanLine,
   },
