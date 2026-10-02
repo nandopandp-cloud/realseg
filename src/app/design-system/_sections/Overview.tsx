@@ -39,7 +39,7 @@ export function Overview({ counts }: { counts: { tokens: number; components: num
             </Badge>
           </div>
           <h1 id="overview-title" className="type-display-lg mt-8 text-fg">
-            The RealSeg
+            RealSeg
             <br />
             Digital <Highlight>Language.</Highlight>
           </h1>
