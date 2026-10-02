@@ -28,6 +28,12 @@ Documentação viva em **`/design-system`** e demo de produto em **`/design-syst
 Em `npm run dev` a rota fica aberta sem senha. Todas as respostas levam `noindex`; a rota não aparece em sitemap nem em `robots.txt`.
 As páginas do Brandbook ficam em `src/design-system/assets/brandbook` (fora de `/public`) e só são servidas com sessão válida.
 
+**Loading de marca**
+
+- Primeiro acesso à landing: `BootSequence`, abertura cinematográfica em 8 etapas (cerca de 7s, pode ser pulada). Exibida uma vez por navegador (`localStorage: rs-boot-v1`).
+- Acessos seguintes, reduced-motion e rotas do Design System: `PageLoader`, loader rápido enquanto a página carrega.
+- Para rever a abertura: apague `rs-boot-v1` no localStorage ou use "Reproduzir abertura" no Design System (seção Feedback).
+
 **Uso nos produtos**
 
 ```tsx

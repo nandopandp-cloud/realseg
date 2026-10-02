@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { SiteLoader } from "@/components/loader/SiteLoader";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
@@ -24,6 +25,8 @@ export default function Home() {
       >
         Pular para o conteúdo
       </a>
+      <div aria-hidden className="rs-boot-cover" />
+      <SiteLoader />
       <SmoothScroll />
       <Header />
       <main id="conteudo">

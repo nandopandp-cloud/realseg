@@ -336,3 +336,18 @@ html.has-cursor select {
     opacity: 1;
   }
 }
+
+/* Cobertura do loader de abertura: pintada antes da hidratação para evitar flash do site. */
+.rs-boot-cover {
+  display: none;
+}
+html[data-boot]:not([data-boot-released]) {
+  overflow: hidden;
+}
+html[data-boot]:not([data-boot-released]) .rs-boot-cover {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 590;
+  background: var(--rs-midnight);
+}

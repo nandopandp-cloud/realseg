@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { site } from "@/data/site";
+import { BOOT_SCRIPT } from "@/lib/boot";
 import "./globals.css";
 
 const inter = Inter({
@@ -75,7 +76,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="pt-BR" className={`${inter.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
         {/* Marca JS ativo antes da pintura: permite esconder estados iniciais de animação sem flash. */}
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
       </head>
       <body className="grain">{children}</body>

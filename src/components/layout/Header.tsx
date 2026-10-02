@@ -8,6 +8,7 @@ import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { gsap, useGSAP } from "@/lib/gsap";
+import { onBootDone } from "@/lib/boot";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -62,7 +63,15 @@ export function Header() {
 
   // Entrada do header junto com o hero
   useGSAP(() => {
-    gsap.from("[data-header]", { y: -24, opacity: 0, duration: 1.2, delay: 0.9, ease: "expo.out" });
+    const tween = gsap.from("[data-header]", {
+      y: -24,
+      opacity: 0,
+      duration: 1.2,
+      delay: 0.9,
+      ease: "expo.out",
+      paused: true,
+    });
+    return onBootDone(() => tween.play());
   });
 
   return (

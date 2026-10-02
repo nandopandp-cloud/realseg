@@ -104,5 +104,10 @@ export { CinematicImage } from "./components/media/CinematicImage";
 export { Lightbox, type LightboxImage } from "./components/media/Lightbox";
 export { Reveal, RevealGroup, Parallax, CountUp } from "./components/motion/Motion";
 
+// Loaders de marca
+export { PageLoader } from "./components/loaders/PageLoader";
+export { BootSequence } from "./components/loaders/BootSequence";
+export { Emblem, Wordmark } from "./brand/Emblem";
+
 // Hooks
 export { useReducedMotion, useMediaQuery, useInView, useClock } from "./hooks";

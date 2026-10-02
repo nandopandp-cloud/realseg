@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { onBootDone } from "@/lib/boot";
 
 declare global {
   interface Window {
@@ -22,12 +23,16 @@ export function SmoothScroll() {
     });
     window.__lenis = lenis;
     lenis.on("scroll", ScrollTrigger.update);
+    // Scroll travado enquanto o loader de abertura estiver na tela.
+    lenis.stop();
+    const release = onBootDone(() => lenis.start());
 
     const tick = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
+      release();
       gsap.ticker.remove(tick);
       lenis.destroy();
       window.__lenis = undefined;

@@ -1,4 +1,5 @@
 import { DocSection, SubSection, Specimen, ComponentDoc, Note } from "../_components/Doc";
+import { BrandLoaders } from "./LoadersDemo";
 import { Alerts, Badges, Empty, Loaders, Overlays, ToastsAndTooltips } from "./FeedbackDemo";
 
 export function Feedback() {
@@ -49,6 +50,12 @@ export function Feedback() {
         description="Spinner e progress são feedback funcional: continuam (mais lentos) em reduced-motion."
       >
         <Loaders />
+      </SubSection>
+      <SubSection
+        title="Loaders de marca"
+        description="Primeiro acesso: abertura cinematográfica. Demais carregamentos: loader rápido."
+      >
+        <BrandLoaders />
       </SubSection>
       <SubSection
         title="Empty states"

@@ -7,6 +7,7 @@ import { StatusDot } from "@/components/ui/Hud";
 import { DataNetwork } from "@/components/hero/DataNetwork";
 import { HeroHud } from "@/components/hero/HeroHud";
 import { gsap, MQ, useGSAP } from "@/lib/gsap";
+import { onBootDone } from "@/lib/boot";
 
 const HEADLINE = [["Segurança"], ["que", "enxerga"], ["além."]];
 
@@ -24,7 +25,9 @@ export function Hero() {
 
       mm.add(MQ.motion, () => {
         // ---------- Entrada cinematográfica ----------
-        const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+        const tl = gsap.timeline({ defaults: { ease: "expo.out" }, paused: true });
+        // A entrada só começa quando o loader de abertura libera a tela.
+        const release = onBootDone(() => tl.play());
         tl.fromTo(
           q("[data-hero-bg]"),
           { scale: 1.28, opacity: 0 },
@@ -79,6 +82,7 @@ export function Hero() {
         gsap.to(q("[data-hero-hud]"), { yPercent: -30, opacity: 0.2, ease: "none", scrollTrigger: st });
         gsap.to(q("[data-hero-net]"), { yPercent: -16, ease: "none", scrollTrigger: st });
         gsap.to(q("[data-hero-dim]"), { opacity: 0.85, ease: "none", scrollTrigger: st });
+        return () => release();
       });
 
       // ---------- Profundidade pelo mouse (somente desktop) ----------
