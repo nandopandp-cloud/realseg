@@ -1,0 +1,348 @@
+/*
+ * RealSeg Design System — utilitários e keyframes da linguagem visual.
+ * Tokens (cores, tipografia, raios…) vivem em tokens.css (gerado).
+ */
+
+@theme {
+  --animate-rs-scan: rs-scan 6s var(--rs-ease-emphasized) infinite;
+  --animate-rs-pulse: rs-pulse 2.4s ease-out infinite;
+  --animate-rs-sweep: rs-sweep 6s linear infinite;
+  --animate-rs-spin: rs-spin 0.9s linear infinite;
+  --animate-rs-shimmer: rs-shimmer 1.6s linear infinite;
+  --animate-rs-flow: rs-flow 1.4s linear infinite;
+  --animate-rs-indeterminate: rs-indeterminate 1.6s var(--rs-ease-emphasized) infinite;
+  --animate-rs-float: rs-float 8s ease-in-out infinite;
+  --animate-rs-enter: rs-enter var(--rs-duration-slow) var(--rs-ease-enter) both;
+  --animate-rs-fade: rs-fade var(--rs-duration-normal) var(--rs-ease-standard) both;
+
+  @keyframes rs-scan {
+    0% {
+      transform: translate3d(0, -100%, 0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(0, 1000%, 0);
+      opacity: 0;
+    }
+  }
+  @keyframes rs-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(3.2);
+      opacity: 0;
+    }
+  }
+  @keyframes rs-sweep {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rs-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rs-shimmer {
+    from {
+      transform: translate3d(-100%, 0, 0);
+    }
+    to {
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+  @keyframes rs-flow {
+    to {
+      stroke-dashoffset: -16;
+    }
+  }
+  @keyframes rs-indeterminate {
+    0% {
+      transform: translate3d(-100%, 0, 0) scaleX(0.4);
+    }
+    60% {
+      transform: translate3d(60%, 0, 0) scaleX(0.6);
+    }
+    100% {
+      transform: translate3d(200%, 0, 0) scaleX(0.4);
+    }
+  }
+  @keyframes rs-float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -6px, 0);
+    }
+  }
+  @keyframes rs-enter {
+    from {
+      opacity: 0;
+      transform: translate3d(0, var(--rs-distance-md), 0);
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+  }
+  @keyframes rs-fade {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 4px, 0) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* ---------- Layout ---------- */
+@utility rs-container {
+  width: 100%;
+  max-width: var(--rs-container);
+  margin-inline: auto;
+  padding-inline: var(--rs-gutter);
+}
+@utility rs-container-wide {
+  width: 100%;
+  max-width: var(--rs-container-wide);
+  margin-inline: auto;
+  padding-inline: var(--rs-gutter);
+}
+
+/* ---------- Superfícies ---------- */
+/* Glass: somente para camadas flutuantes (HUD, modais, menus). Nunca em tudo. */
+@utility rs-glass {
+  background: linear-gradient(180deg, rgb(11 34 49 / 0.62), rgb(6 18 29 / 0.5));
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--rs-border-default);
+}
+@utility rs-text-gradient {
+  background: var(--rs-gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Linguagem gráfica ---------- */
+/* Grid base 24px · linhas 1px · opacidade 5–12% (Brandbook 08.01) */
+@utility rs-grid {
+  background-image:
+    linear-gradient(to right, rgb(117 180 201 / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(117 180 201 / 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+@utility rs-grid-lg {
+  background-image:
+    linear-gradient(to right, rgb(117 180 201 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(117 180 201 / 0.07) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+@utility rs-dots {
+  background-image: radial-gradient(rgb(0 230 209 / 0.35) 1px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+@utility rs-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+@utility rs-mask-radial {
+  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 72%);
+}
+@utility rs-mask-fade-y {
+  mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
+}
+@utility rs-mask-fade-x {
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+/* Frame — elemento de foco (cantoneiras). Cor via --rs-frame-color, tamanho via --rs-frame-size. */
+@utility rs-frame {
+  --c: var(--rs-frame-color, var(--rs-cyan));
+  --l: var(--rs-frame-size, 12px);
+  background:
+    linear-gradient(var(--c), var(--c)) top left / var(--l) 1.5px,
+    linear-gradient(var(--c), var(--c)) top left / 1.5px var(--l),
+    linear-gradient(var(--c), var(--c)) top right / var(--l) 1.5px,
+    linear-gradient(var(--c), var(--c)) top right / 1.5px var(--l),
+    linear-gradient(var(--c), var(--c)) bottom left / var(--l) 1.5px,
+    linear-gradient(var(--c), var(--c)) bottom left / 1.5px var(--l),
+    linear-gradient(var(--c), var(--c)) bottom right / var(--l) 1.5px,
+    linear-gradient(var(--c), var(--c)) bottom right / 1.5px var(--l);
+  background-repeat: no-repeat;
+}
+
+/* ---------- Interação ---------- */
+/* Anel de foco oficial. Nunca usar o azul padrão do navegador. */
+@utility rs-focus {
+  outline: none;
+  &:focus-visible {
+    outline: var(--rs-focus-width) solid var(--rs-cyan);
+    outline-offset: 3px;
+  }
+}
+@utility rs-focus-within {
+  &:focus-within {
+    border-color: var(--rs-cyan);
+    box-shadow:
+      0 0 0 3px rgb(0 230 209 / 0.12),
+      var(--rs-glow-sm);
+  }
+}
+/* Alvo de toque mínimo 44×44 sem alterar o desenho. */
+@utility rs-hit {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: max(100%, 44px);
+    height: max(100%, 44px);
+    transform: translate(-50%, -50%);
+  }
+}
+
+@utility rs-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(117 180 201 / 0.25) transparent;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .rs-motion,
+  [class*="animate-rs-"]:not([class*="animate-rs-spin"]):not([class*="animate-rs-indeterminate"]):not(
+      [class*="animate-rs-shimmer"]
+    ) {
+    animation: none !important;
+  }
+  [class*="animate-rs-spin"],
+  [class*="animate-rs-indeterminate"],
+  [class*="animate-rs-shimmer"] {
+    /* Feedback funcional é preservado, porém mais lento. */
+    animation-duration: 2.4s !important;
+    animation-iteration-count: infinite !important;
+  }
+}
+
+/* ---------- Overlays ---------- */
+@keyframes rs-dialog-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0) scale(0.97);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+@keyframes rs-drawer-in {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes rs-sheet-in {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+dialog::backdrop {
+  animation: rs-backdrop-in var(--rs-duration-slow) var(--rs-ease-standard);
+}
+@keyframes rs-backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ---------- Linguagem gráfica: keyframes ---------- */
+@keyframes rs-scan-x {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(1000%, 0, 0);
+    opacity: 0;
+  }
+}
+/* Blip do radar: acende quando a varredura passa sobre o nó. */
+@keyframes rs-blip {
+  0% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+  12% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+}
+@keyframes rs-lock {
+  0% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes rs-travel {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rs-blip {
+    animation: none !important;
+    opacity: 0.9 !important;
+  }
+  .rs-travel {
+    display: none;
+  }
+}
+@keyframes rs-signal {
+  from {
+    stroke-dashoffset: 108;
+  }
+  to {
+    stroke-dashoffset: -8;
+  }
+}
+
+/* Utilitários tipográficos usados dinamicamente (type-${variant}) */
+@source inline("type-{display-xl,display-lg,display-md,heading-xl,heading-lg,heading-md,heading-sm,body-lg,body-md,body-sm,label-lg,label-md,label-sm,micro,data}");

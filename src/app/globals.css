@@ -1,22 +1,9 @@
 @import "tailwindcss";
+/* Fonte única de cores, tipografia, raios, sombras e motion: RealSeg Design System */
+@import "../design-system/styles/tokens.css";
+@import "../design-system/styles/system.css";
 
 @theme {
-  --color-ink-950: #020811;
-  --color-ink-900: #06121d;
-  --color-ink-800: #081a27;
-  --color-ink-700: #0b2231;
-  --color-ink-600: #12303f;
-  --color-fg: #f5fbff;
-  --color-muted: #8295a6;
-  --color-subtle: #4f6476;
-  --color-accent: #00e6d1;
-  --color-accent-2: #42fff0;
-  --color-alert: #ff5f57;
-  --color-warn: #ffb547;
-
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
-
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 

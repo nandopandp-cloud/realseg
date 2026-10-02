@@ -13,11 +13,34 @@ npm run build && npm start
 npm run lint
 ```
 
+## Design System (interno)
+
+Documentação viva em **`/design-system`** e demo de produto em **`/design-system/demo`** — material interno, fora da navegação do site.
+
+**Acesso protegido** por HTTP Basic Auth (`src/proxy.ts`). Configure na Vercel (Settings → Environment Variables):
+
+| Variável | Obrigatória | Descrição |
+| --- | --- | --- |
+| `DESIGN_SYSTEM_PASSWORD` | sim (produção) | Senha de acesso. **Sem ela, a rota responde 404 em produção.** |
+| `DESIGN_SYSTEM_USER` | não | Usuário (padrão `realseg`). |
+
+Em `npm run dev` a rota fica aberta sem senha. Todas as respostas levam `noindex`; a rota não aparece em sitemap nem em `robots.txt`.
+As páginas do Brandbook ficam em `src/design-system/assets/brandbook` (fora de `/public`) e só são servidas pela rota protegida.
+
+**Uso nos produtos**
+
+```tsx
+import { Button, Card, SecurityHUD, SecurityRadar } from "@/design-system";
+```
+
+**Tokens** — fonte única em `src/design-system/tokens/*.ts`. `npm run tokens` gera `styles/tokens.css` (variáveis `--rs-*` + tema Tailwind); roda automaticamente antes de `dev` e `build`. A landing consome os mesmos tokens.
+
 ## Estrutura
 
 ```
 src/
-  app/                 layout (SEO, fontes, JSON-LD), página, ícones, tokens em globals.css
+  app/                 layout (SEO, fontes, JSON-LD), landing, /design-system (docs + demo)
+  design-system/       tokens, estilos, logo, ícones, hooks e componentes do sistema
   data/                todo o conteúdo editável (segmentos, tecnologias, cases, insights, métricas…)
   lib/                 gsap (plugins + media queries), hooks, utils
   components/
